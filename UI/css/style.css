@@ -278,11 +278,17 @@ td, th{
 		float: left;
 		width:100%;
 	}
-}
-@media(max-width: 807px){
-	.food-items .card{
+	.food-items .admin-card, .admin-category, aside#admin-menu, .admin-category #history, #user-history, .food-items .card {
 		float: left;
 		width:100%;
+	}
+}
+@media(max-width: 807px){
+	#signup{
+		width:90%;
+	}
+	#signup input{
+		width: 100%;
 	}
 }
 
@@ -304,11 +310,7 @@ td, th{
 
 	}
 
+
+
 }
 
-@media(max-width: 734px){
-	aside#admin-menu, .admin-category #history, #user-history{
-		
-	width: 100%
-	}
-}
