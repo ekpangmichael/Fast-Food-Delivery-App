@@ -7,7 +7,7 @@
     "test": "mocha --exit --require babel-core/register",
     "build": "babel test/index.spec.js --out-dir test",
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha test/*.js -- --require babel-register",
-    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "coveralls": "npm run coverage -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "dev-start": "babel-watch server.js"
   },
   "repository": {
