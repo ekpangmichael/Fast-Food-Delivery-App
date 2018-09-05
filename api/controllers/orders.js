@@ -9,7 +9,7 @@ const Order = {
       return res.status(400).send({ message: 'All fields are required' });
     }
     const order = OrdersModel.createOrders(req.body);
-    return res.status(201).send([{ mesage: 'Item added successfully' }, order]);
+    return res.status(201).send([{ mesage: 'Item added successfully' }, { orders: order }]);
   },
   // get all available orders
 
