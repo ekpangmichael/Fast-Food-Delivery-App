@@ -29,7 +29,7 @@ const newFastFood = {
   price: 'N 1000',
 };
 
-describe('## API Test', () => {
+describe('## API Tests', () => {
   after((done) => {
     server.close();
     done();
@@ -52,7 +52,7 @@ describe('## API Test', () => {
         });
     });
 
-    it('should return  bad request error', (done) => {
+    it('should return bad request error - All fields are required', (done) => {
       request(app)
         .post('/api/v1/orders')
         .send({
