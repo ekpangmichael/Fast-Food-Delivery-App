@@ -2,7 +2,7 @@
   "name": "Fast-Food-Delivery-App",
   "version": "1.0.0",
   "description": "This is a fast food delivery app",
-  "main": "./build/server.js",
+  "main": "server.js",
   "scripts": {
     "test": "mocha --exit --require babel-core/register",
     "build": "babel server.js --out-dir build",
