@@ -52,7 +52,7 @@ describe('## API Tests', () => {
         });
     });
 
-    it('should return  bad request error', (done) => {
+    it('should return bad request error - All fields are required', (done) => {
       request(app)
         .post('/api/v1/orders')
         .send({
