@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">80% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>24/30</span>
+        <span class='fraction'>30/30</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">73.68% </span>
+        <span class="strong">94.74% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>14/19</span>
+        <span class='fraction'>18/19</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>6/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">80% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>24/30</span>
+        <span class='fraction'>30/30</span>
       </div>
     </div>
     <p class="quiet">
@@ -143,46 +143,46 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -215,8 +215,8 @@ var foodItems = {
   getAllFoodItems: function getAllFoodItems(req, res) {
     var itemMesage = '';
     var foodItem = _admin2.default.findAllItems();
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (foodItem.length === 0) {
-<span class="cstat-no" title="statement not covered" >      itemMesage = 'No Fast Food Item Found';</span>
+    if (foodItem.length === 0) {
+      itemMesage = 'No Fast Food Item Found';
     } else {
       itemMesage = 'successful';
     }
@@ -227,32 +227,32 @@ var foodItems = {
 &nbsp;
   getOneItem: function getOneItem(req, res) {
     var foodItem = _admin2.default.findOneItem(req.params.id);
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (!foodItem) {
+    if (!foodItem) {
       return res.status(404).send({ message: 'item not found' });
     }
-<span class="cstat-no" title="statement not covered" >    return res.status(200).send([{ message: 'item found successfully' }, foodItem]);</span>
+    return res.status(200).send([{ message: 'item found successfully' }, foodItem]);
   },
 &nbsp;
 &nbsp;
   //  update a particular item
   updateItem: function updateItem(req, res) {
     var foodItem = _admin2.default.findOneItem(req.params.id);
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (!foodItem) {
+    if (!foodItem) {
       return res.status(404).send({ message: 'item not found' });
     }
-    var updatedItem = <span class="cstat-no" title="statement not covered" >_admin2.default.updateItem(req.params.id, req.body);</span>
-<span class="cstat-no" title="statement not covered" >    return res.status(200).send([{ message: 'item updated successfully' }, updatedItem]);</span>
+    var updatedItem = _admin2.default.updateItem(req.params.id, req.body);
+    return res.status(200).send([{ message: 'item updated successfully' }, updatedItem]);
   },
 &nbsp;
 &nbsp;
   // deleta a particular item
   deleteItem: function deleteItem(req, res) {
     var foodItem = _admin2.default.findOneItem(req.params.id);
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (!foodItem) {
+    if (!foodItem) {
       return res.status(404).send({ message: 'item not found' });
     }
-    var ref = <span class="cstat-no" title="statement not covered" >_admin2.default.deleteItem(req.params.id);</span>
-<span class="cstat-no" title="statement not covered" >    return res.status(204).send([{ message: 'Item deleted successfully' }, ref]);</span>
+    var ref = _admin2.default.deleteItem(req.params.id);
+    return res.status(204).send([{ message: 'Item deleted successfully' }, ref]);
   }
 };
 &nbsp;
@@ -262,7 +262,7 @@ exports.default = foodItems;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Sep 06 2018 09:42:00 GMT-0700 (Pacific Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Sep 06 2018 12:07:04 GMT-0700 (Pacific Daylight Time)
 </div>
 </div>
 <script src="..\..\..\..\prettify.js"></script>
