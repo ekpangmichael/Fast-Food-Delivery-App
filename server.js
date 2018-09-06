@@ -61,7 +61,7 @@ const apiDocs = {
 
 app.get('/', (req, res) => res.status(200).send([{ message: apiDocs }]));
 
-const server = app.listen(process.env.PORT || 3000);
+const server = app.listen(process.env.PORT || 8000);
 
 export { app, server };
 

@@ -153,6 +153,17 @@ describe('## API Test', () => {
         });
     });
 
+ it('create new user with the same email should return Email already Taken', (done) => {
+      request(app)
+        .post('/api/v1/users/')
+        .send(newUser)
+        .end((err, res) => {
+          expect(res).to.have.status(400);
+          const data = JSON.parse(res.text);
+          expect(data.message).to.equal('Email already Taken!');
+          done();
+        });
+    });
     it('expect password to be encrypted', (done) => {
       request(app)
         .post('/api/v1/users/signin')
