@@ -13,15 +13,15 @@ var _bodyParser = require('body-parser');
 
 var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
-var _orders = require('../api/controllers/orders');
+var _orders = require('./build/api/controllers/orders');
 
 var _orders2 = _interopRequireDefault(_orders);
 
-var _admin = require('../api/controllers/admin');
+var _admin = require('./build/api/controllers/admin');
 
 var _admin2 = _interopRequireDefault(_admin);
 
-var _user = require('../api/controllers/user');
+var _user = require('./build/api/controllers/user');
 
 var _user2 = _interopRequireDefault(_user);
 
