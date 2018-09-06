@@ -5,6 +5,8 @@ import { app, server } from '../server';
 
 chai.use(chaiHttp);
 
+let id = '';
+
 const newOrders = {
   userId: '2',
   orderId: '7',
@@ -129,6 +131,8 @@ describe('## API Test', () => {
         .end((err, res) => {
           const data = JSON.parse(res.text);
           const name = data[1].users.userName;
+           id = data[1].users.id;
+          console.log(id);
           expect(err).to.be.a('null');
           expect(name).to.equal(newUser.userName);
           expect(data[0].message).to.equal('Registration successful');
@@ -146,9 +150,23 @@ describe('## API Test', () => {
         .end((err, res) => {
           const data = JSON.parse(res.text);
           const name = data[1].users.userName;
+          console.log(id);
           expect(err).to.be.a('null');
           expect(name).to.equal(newUser.userName);
           expect(data[0].message).to.equal('User login successfully');
+          done();
+        });
+    });
+
+ it('Get one particular user should return User found successfully', (done) => {
+      request(app)
+        .get(`/api/v1/users/${id}`)
+        .send()
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          const data = JSON.parse(res.text);
+          //console.log(data);
+          expect(data[0].message).to.equal('User found successfully');
           done();
         });
     });
@@ -216,7 +234,7 @@ describe('## API Test', () => {
         .end((err, res) => {
           expect(res).to.have.status(404);
           const data = JSON.parse(res.text);
-          expect(data.message).to.equal('user not found');
+          expect(data.message).to.equal('User not found');
           done();
         });
     });
