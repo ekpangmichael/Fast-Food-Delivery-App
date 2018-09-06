@@ -48,9 +48,9 @@ var User = {
   getOneUser: function getOneUser(req, res) {
     var user = _users2.default.findOneUser(req.params.id);
     if (!user) {
-      return res.status(404).send({ message: 'user not found' });
+      return res.status(404).send({ message: 'User not found' });
     }
-    return res.status(200).send([{ message: 'user found successfully' }, user]);
+    return res.status(200).send([{ message: 'User found successfully' }, user]);
   },
   userSigin: function userSigin(req, res) {
     var pass = req.body.userPassword;

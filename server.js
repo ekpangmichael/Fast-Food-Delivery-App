@@ -84,7 +84,7 @@ app.get('/', function (req, res) {
   return res.status(200).send([{ message: apiDocs }]);
 });
 
-var server = app.listen(process.env.PORT || 3000);
+var server = app.listen(process.env.PORT || 8000);
 
 exports.app = app;
 exports.server = server;
