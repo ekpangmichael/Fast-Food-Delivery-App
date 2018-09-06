@@ -1,92 +1,68 @@
-'use strict';
+import express from 'express';
+import bodyParser from 'body-parser';
+import Order from './api/controllers/orders';
+import Admin from './api/controllers/admin';
+import User from './api/controllers/user';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.server = exports.app = undefined;
 
-var _express = require('express');
+const app = express();
 
-var _express2 = _interopRequireDefault(_express);
-
-var _bodyParser = require('body-parser');
-
-var _bodyParser2 = _interopRequireDefault(_bodyParser);
-
-var _orders = require('./build/api/controllers/orders');
-
-var _orders2 = _interopRequireDefault(_orders);
-
-var _admin = require('./build/api/controllers/admin');
-
-var _admin2 = _interopRequireDefault(_admin);
-
-var _user = require('./build/api/controllers/user');
-
-var _user2 = _interopRequireDefault(_user);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var app = (0, _express2.default)();
-
-app.use(_express2.default.json());
-app.use(_bodyParser2.default.json());
-app.use(_bodyParser2.default.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // order route
-app.post('/api/v1/orders', _orders2.default.createOrders);
-app.get('/api/v1/orders', _orders2.default.getAllOrders);
-app.get('/api/v1/orders/:id', _orders2.default.getOneOrder);
-app.put('/api/v1/orders/:id', _orders2.default.updateOrder);
-app.delete('/api/v1/orders/:id', _orders2.default.deleteOrder);
+app.post('/api/v1/orders', Order.createOrders);
+app.get('/api/v1/orders', Order.getAllOrders);
+app.get('/api/v1/orders/:id', Order.getOneOrder);
+app.put('/api/v1/orders/:id', Order.updateOrder);
+app.delete('/api/v1/orders/:id', Order.deleteOrder);
 
 // admin route
-app.post('/api/v1/admin', _admin2.default.createFoodItems);
-app.get('/api/v1/admin', _admin2.default.getAllFoodItems);
-app.get('/api/v1/admin/:id', _admin2.default.getOneItem);
-app.put('/api/v1/admin/:id', _admin2.default.updateItem);
-app.delete('/api/v1/admin/:id', _admin2.default.deleteItem);
+app.post('/api/v1/admin', Admin.createFoodItems);
+app.get('/api/v1/admin', Admin.getAllFoodItems);
+app.get('/api/v1/admin/:id', Admin.getOneItem);
+app.put('/api/v1/admin/:id', Admin.updateItem);
+app.delete('/api/v1/admin/:id', Admin.deleteItem);
 
 // users route
-app.post('/api/v1/users', _user2.default.createUser);
-app.get('/api/v1/users', _user2.default.getAllUsers);
-app.get('/api/v1/users/:id', _user2.default.getOneUser);
-app.put('/api/v1/users/:id', _user2.default.updateUser);
-app.delete('/api/v1/users/:id', _user2.default.deleteUser);
-app.post('/api/v1/users/signin', _user2.default.userSigin);
+app.post('/api/v1/users', User.createUser);
+app.get('/api/v1/users', User.getAllUsers);
+app.get('/api/v1/users/:id', User.getOneUser);
+app.put('/api/v1/users/:id', User.updateUser);
+app.delete('/api/v1/users/:id', User.deleteUser);
+app.post('/api/v1/users/signin', User.userSigin);
 
-var apiDocs = {
+
+const apiDocs = {
   orders: {
     '/api/v1/orders (method:GET)': 'Get all available orders ',
     '/api/v1/orders (method:POST)': 'Create orders ',
     '/api/v1/orders/:id (method:GET)': 'Get one particular order ',
     '/api/v1/orders/:id (method:PUT)': 'Upadate a particular order ',
-    '/api/v1/orders/:id (method:Delete)': 'Delete a particular order '
+    '/api/v1/orders/:id (method:Delete)': 'Delete a particular order ',
   },
   admin: {
     '/api/v1/admin (method:GET)': 'Get all fast food items ',
     '/api/v1/admin (method:POST)': 'Add fast food items ',
     '/api/v1/admin/:id (method:GET)': 'Get one particular fast food item ',
     '/api/v1/admin/:id (method:PUT)': 'Upadte a particular fast food item ',
-    '/api/v1/admin/:id (method:Delete)': 'Delete a particular fast food item'
+    '/api/v1/admin/:id (method:Delete)': 'Delete a particular fast food item',
   },
   users: {
     '/api/v1/users (method:GET)': 'Get all registered users ',
     '/api/v1/users (method:POST)': 'user registration (Expected params "userName":", "userEmail",  "userAddress", "userPassword") ',
     '/api/v1/users/:id (method:GET)': 'Get one particular user (Expected param "id") ',
     '/api/v1/users/:id (method:PUT)': 'Update a user info',
-    '/api/v1/users/:id (method:Delete)': 'Delete a particular user (Expected param "id")'
-  }
+    '/api/v1/users/:id (method:Delete)': 'Delete a particular user (Expected param "id")',
+  },
 
 };
 
-app.get('/', function (req, res) {
-  return res.status(200).send([{ message: apiDocs }]);
-});
+app.get('/', (req, res) => res.status(200).send([{ message: apiDocs }]));
 
-var server = app.listen(process.env.PORT || 3000);
+const server = app.listen(process.env.PORT || 3000);
 
-exports.app = app;
-exports.server = server;
+export { app, server };
 
 //console.log('app running on port ', 8000);
