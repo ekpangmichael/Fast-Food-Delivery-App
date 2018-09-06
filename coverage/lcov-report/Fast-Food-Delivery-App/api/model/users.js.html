@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">21.43% </span>
+        <span class="strong">53.57% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>6/28</span>
+        <span class='fraction'>15/28</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">28.57% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/14</span>
+        <span class='fraction'>4/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">75% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/4</span>
+        <span class='fraction'>3/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">24% </span>
+        <span class="strong">52% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>6/25</span>
+        <span class='fraction'>13/25</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -132,7 +132,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -141,28 +141,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -203,37 +203,37 @@ class User {
   //  returns orders object
 &nbsp;
   userRegistration(data) {
-    const newUser = <span class="cstat-no" title="statement not covered" >{</span>
+    const newUser = {
       id: uuid.v4(),
-      userName: data.userName || '',
-      userEmail: data.userEmail || '',
-      userAddress: data.userAddress || '',
-      userPassword: bcrypt.hashSync(data.userPassword, saltRounds) || '',
+      userName: data.userName || <span class="branch-1 cbranch-no" title="branch not covered" >'',</span>
+      userEmail: data.userEmail || <span class="branch-1 cbranch-no" title="branch not covered" >'',</span>
+      userAddress: data.userAddress || <span class="branch-1 cbranch-no" title="branch not covered" >'',</span>
+      userPassword: bcrypt.hashSync(data.userPassword, saltRounds) || <span class="branch-1 cbranch-no" title="branch not covered" >'',</span>
       regDate: moment.now(),
       modifiedDate: moment.now(),
     };
-<span class="cstat-no" title="statement not covered" >    this.users.push(newUser);</span>
-<span class="cstat-no" title="statement not covered" >    return newUser;</span>
+    this.users.push(newUser);
+    return newUser;
   }
 &nbsp;
   //  returns a particular user
 &nbsp;
   findOneUser(id) {
-<span class="cstat-no" title="statement not covered" >    return this.users.find(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >user =&gt; user.id === id);</span></span></span>
+    return this.users.find(user =&gt; user.id === id);
   }
 &nbsp;
   userExistEmail(email) {
-<span class="cstat-no" title="statement not covered" >    return this.users.find(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >user =&gt; user.userEmail === email);</span></span></span>
+    return this.users.find(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >user =&gt; user.userEmail === email);</span></span>
   }
 &nbsp;
   userSigin(email) {
-<span class="cstat-no" title="statement not covered" >    return this.users.find(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >user =&gt; user.userEmail === email);</span></span></span>
+    return this.users.find(user =&gt; user.userEmail === email);
   }
   //  returns all users
 &nbsp;
 &nbsp;
   findAllUsers() {
-<span class="cstat-no" title="statement not covered" >    return this.users;</span>
+    return this.users;
   }
   //  Update user
 &nbsp;
@@ -265,7 +265,7 @@ export default new User();
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Sep 05 2018 17:58:52 GMT-0700 (Pacific Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Sep 06 2018 02:11:38 GMT-0700 (Pacific Daylight Time)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>

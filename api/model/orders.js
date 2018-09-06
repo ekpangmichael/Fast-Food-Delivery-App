@@ -12,7 +12,7 @@ class FoodItems {
 
   createOrders(data) {
     const newOrders = {
-      id: uuid.v4() || '',
+      id: uuid.v4(),
       userId: data.userId || '',
       orderId: data.orderId || '',
       orderName: data.orderName || '',
