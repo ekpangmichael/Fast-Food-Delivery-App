@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.server = exports.app = undefined;
 
 var _express = require('express');
 
@@ -83,8 +84,10 @@ app.get('/', function (req, res) {
   return res.status(200).send([{ message: apiDocs }]);
 });
 
-app.listen(3000);
+var server = app.listen(8000);
 
-exports.default = app;
+exports.app = app;
+exports.server = server;
 
-console.log('app running on port ', 3000);
+
+console.log('app running on port ', 8000);
