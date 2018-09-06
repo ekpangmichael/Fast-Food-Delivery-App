@@ -5,6 +5,8 @@ import { app, server } from '../server';
 
 chai.use(chaiHttp);
 
+let id = '';
+
 const newOrders = {
   userId: '2',
   orderId: '7',
@@ -129,6 +131,8 @@ describe('## API Test', () => {
         .end((err, res) => {
           const data = JSON.parse(res.text);
           const name = data[1].users.userName;
+           id = data[1].users.id;
+          console.log(id);
           expect(err).to.be.a('null');
           expect(name).to.equal(newUser.userName);
           expect(data[0].message).to.equal('Registration successful');
@@ -146,6 +150,7 @@ describe('## API Test', () => {
         .end((err, res) => {
           const data = JSON.parse(res.text);
           const name = data[1].users.userName;
+          console.log(id);
           expect(err).to.be.a('null');
           expect(name).to.equal(newUser.userName);
           expect(data[0].message).to.equal('User login successfully');
@@ -153,6 +158,30 @@ describe('## API Test', () => {
         });
     });
 
+ it('Get one particular user should return User found successfully', (done) => {
+      request(app)
+        .get(`/api/v1/users/${id}`)
+        .send()
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          const data = JSON.parse(res.text);
+          //console.log(data);
+          expect(data[0].message).to.equal('User found successfully');
+          done();
+        });
+    });
+
+ it('create new user with the same email should return Email already Taken', (done) => {
+      request(app)
+        .post('/api/v1/users/')
+        .send(newUser)
+        .end((err, res) => {
+          expect(res).to.have.status(400);
+          const data = JSON.parse(res.text);
+          expect(data.message).to.equal('Email already Taken!');
+          done();
+        });
+    });
     it('expect password to be encrypted', (done) => {
       request(app)
         .post('/api/v1/users/signin')
@@ -205,7 +234,7 @@ describe('## API Test', () => {
         .end((err, res) => {
           expect(res).to.have.status(404);
           const data = JSON.parse(res.text);
-          expect(data.message).to.equal('user not found');
+          expect(data.message).to.equal('User not found');
           done();
         });
     });

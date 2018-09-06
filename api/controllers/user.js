@@ -33,9 +33,9 @@ const User = {
   getOneUser(req, res) {
     const user = UsersModel.findOneUser(req.params.id);
     if (!user) {
-      return res.status(404).send({ message: 'user not found' });
+      return res.status(404).send({ message: 'User not found' });
     }
-    return res.status(200).send([{ message: 'user found successfully' }, user]);
+    return res.status(200).send([{ message: 'User found successfully' }, user]);
   },
 
   userSigin(req, res) {
