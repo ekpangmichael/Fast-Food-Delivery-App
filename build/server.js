@@ -84,10 +84,9 @@ app.get('/', function (req, res) {
   return res.status(200).send([{ message: apiDocs }]);
 });
 
-var server = app.listen(8000);
+var server = app.listen(process.env.PORT || 3000);
 
 exports.app = app;
 exports.server = server;
 
-
-console.log('app running on port ', 8000);
+//console.log('app running on port ', 8000);
