@@ -4,8 +4,10 @@
   "description": "This is a fast food delivery app",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --exit",
-    "build": "babel server.js --out-dir build",
+    "test": "mocha --exit --require babel-core/register",
+    "build": "babel test/index.spec.js --out-dir test",
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha test/*.js -- --require babel-register",
+    "coveralls": "npm run coverage -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "dev-start": "babel-watch server.js"
   },
   "repository": {
@@ -24,10 +26,19 @@
     "babel-preset-env": "^1.7.0",
     "babel-watch": "^2.0.7",
     "chai": "^4.1.2",
+    "chai-http": "^4.2.0",
+    "coveralls": "^3.0.2",
     "eslint": "^5.4.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "mocha": "^5.2.0"
+    "http-status": "^1.2.0",
+    "install": "^0.12.1",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^5.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "npm": "^6.4.1",
+    "supertest": "^3.2.0",
+    "supertest-as-promised": "^4.0.2"
   },
   "dependencies": {
     "bcrypt": "^3.0.0",

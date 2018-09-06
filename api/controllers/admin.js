@@ -9,7 +9,7 @@ const foodItems = {
       return res.status(400).send({ message: 'All fields are required' });
     }
     const foodItem = FoodItemsModel.createFoodItems(req.body);
-    return res.status(201).send([{ mesage: 'Item added successfully' }, foodItem]);
+    return res.status(201).send([{ message: 'Item added successfully' }, { foodItems: foodItem }]);
   },
   // get all available Food items
 
@@ -21,7 +21,7 @@ const foodItems = {
     } else {
       itemMesage = 'successful';
     }
-    return res.status(200).send([{ mesage: itemMesage }, foodItem]);
+    return res.status(200).send([{ message: itemMesage }, { foodItems: foodItem }]);
   },
   // get a particular food item
 
@@ -30,7 +30,7 @@ const foodItems = {
     if (!foodItem) {
       return res.status(404).send({ message: 'item not found' });
     }
-    return res.status(200).send([{ mesage: 'item found successfully' }, foodItem]);
+    return res.status(200).send([{ message: 'item found successfully' }, foodItem]);
   },
 
   //  update a particular item
@@ -40,7 +40,7 @@ const foodItems = {
       return res.status(404).send({ message: 'item not found' });
     }
     const updatedItem = FoodItemsModel.updateItem(req.params.id, req.body);
-    return res.status(200).send([{ mesage: 'item updated successfully' }, updatedItem]);
+    return res.status(200).send([{ message: 'item updated successfully' }, updatedItem]);
   },
 
   // deleta a particular item
@@ -50,7 +50,7 @@ const foodItems = {
       return res.status(404).send({ message: 'item not found' });
     }
     const ref = FoodItemsModel.deleteItem(req.params.id);
-    return res.status(204).send([{ mesage: 'Item deleted successfully' }, ref]);
+    return res.status(204).send([{ message: 'Item deleted successfully' }, ref]);
   },
 };
 

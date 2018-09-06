@@ -14,7 +14,7 @@ const User = {
       return res.status(400).send({ message: 'Email already Taken!' });
     }
     const user = UsersModel.userRegistration(req.body);
-    return res.status(201).send([{ mesage: 'Registration successful' }, user]);
+    return res.status(201).send([{ message: 'Registration successful' }, { users: user }]);
   },
   // get all available orders
 
@@ -26,7 +26,7 @@ const User = {
     } else {
       userMesage = 'successful';
     }
-    return res.status(200).send([{ mesage: userMesage }, users]);
+    return res.status(200).send([{ message: userMesage }, { user: users }]);
   },
   // get a partcular user
 
@@ -35,7 +35,7 @@ const User = {
     if (!user) {
       return res.status(404).send({ message: 'user not found' });
     }
-    return res.status(200).send([{ mesage: 'user found successfully' }, user]);
+    return res.status(200).send([{ message: 'user found successfully' }, user]);
   },
 
   userSigin(req, res) {
@@ -46,9 +46,9 @@ const User = {
     }
     return bcrypt.compare(pass, user.userPassword).then((result) => {
       if (result === true) {
-        return res.status(200).send([{ mesage: 'user login successfully' }, user]);
+        return res.status(200).send([{ message: 'User login successfully' }, { users: user }]);
       }
-      return res.status(200).send({ mesage: 'incorrect password' });
+      return res.status(200).send({ message: 'Incorrect password' });
     });
   },
 
@@ -59,7 +59,7 @@ const User = {
       return res.status(404).send({ message: 'user not found' });
     }
     const updatedUser = UsersModel.updateUser(req.params.id, req.body);
-    return res.status(200).send([{ mesage: 'user updated successfully' }, updatedUser]);
+    return res.status(200).send([{ message: 'user updated successfully' }, updatedUser]);
   },
 
   // deleta a particular user
@@ -69,7 +69,7 @@ const User = {
       return res.status(404).send({ message: 'user not found' });
     }
     const ref = UsersModel.deleteUser(req.params.id);
-    return res.status(204).send([{ mesage: 'user deleted successfully' }, ref]);
+    return res.status(204).send([{ message: 'user deleted successfully' }, ref]);
   },
 };
 
