@@ -36,7 +36,7 @@ describe('## API Tests', () => {
   });
 
   describe('### Testing Orders Routes', () => {
-    it('should create am order and get back a response', (done) => {
+    it('should create an order and get back a response', (done) => {
 
       request(app)
         .post('/api/v1/orders')
