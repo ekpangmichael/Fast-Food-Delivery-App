@@ -6,6 +6,8 @@ import { app, server } from '../server';
 chai.use(chaiHttp);
 
 let id = '';
+let footitemId = '';
+let orderID = '';
 
 const newOrders = {
   userId: '2',
@@ -45,8 +47,9 @@ describe('## API Test', () => {
         .send(newOrders)
         .end((err, res) => {
           const data = JSON.parse(res.text);
-          // const order = data[1].orders;
           const name = data[1].orders.orderName;
+          orderID = data[1].orders.id;
+          console.log(orderID);
           expect(err).to.be.a('null');
           expect(name).to.equal(newOrders.orderName);
           expect(data[0].message).to.equal('Item added successfully');
@@ -54,6 +57,32 @@ describe('## API Test', () => {
         });
     });
 
+    it('should return only one particular order', (done) => {
+      request(app)
+        .get(`/api/v1/orders/${orderID}`)
+        .send()
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          const data = JSON.parse(res.text);
+          expect(data[0].message).to.equal('Order found successfully');
+          done();
+        });
+    });
+
+    it('should update one particular order', (done) => {
+      request(app)
+        .put(`/api/v1/orders/${orderID}`)
+        .send({
+          orderStatus: 'Accepted',
+        })
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          const data = JSON.parse(res.text);
+          expect(data[0].message).to.equal('Order updated successfully');
+          done();
+        });
+    });
+   
     it('should return bad request error - All fields are required', (done) => {
       request(app)
         .post('/api/v1/orders')
@@ -77,9 +106,28 @@ describe('## API Test', () => {
           expect(res).to.have.status(200);
           const data = JSON.parse(res.text);
           const dataObject = data[1].orders[0];
-          // console.log(dataObject);
           expect(Object.keys(dataObject)).to.have.lengthOf(10);
           expect(data[0].message).to.equal('successful');
+          done();
+        });
+    });
+    it('should delete one particular order', (done) => {
+      request(app)
+        .delete(`/api/v1/orders/${orderID}`)
+        .send()
+        .end((err, res) => {
+          expect(res).to.have.status(204);
+          done();
+        });
+    });
+    it('Order should return an empty object', (done) => {
+      request(app)
+        .get('/api/v1/orders')
+        .send()
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          const data = JSON.parse(res.text);
+          expect(data[0].message).to.equal('Order  is empty');
           done();
         });
     });
@@ -131,8 +179,7 @@ describe('## API Test', () => {
         .end((err, res) => {
           const data = JSON.parse(res.text);
           const name = data[1].users.userName;
-           id = data[1].users.id;
-          console.log(id);
+          id = data[1].users.id;
           expect(err).to.be.a('null');
           expect(name).to.equal(newUser.userName);
           expect(data[0].message).to.equal('Registration successful');
@@ -150,22 +197,32 @@ describe('## API Test', () => {
         .end((err, res) => {
           const data = JSON.parse(res.text);
           const name = data[1].users.userName;
-          console.log(id);
           expect(err).to.be.a('null');
           expect(name).to.equal(newUser.userName);
           expect(data[0].message).to.equal('User login successfully');
           done();
         });
     });
-
- it('Get one particular user should return User found successfully', (done) => {
+    it('should update one particular user', (done) => {
+      request(app)
+        .put(`/api/v1/users/${id}`)
+        .send({
+          userAddress: 'Calabar',
+        })
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          const data = JSON.parse(res.text);
+          expect(data[0].message).to.equal('user updated successfully');
+          done();
+        });
+    });
+    it('Get one particular user - should return User found successfully', (done) => {
       request(app)
         .get(`/api/v1/users/${id}`)
         .send()
         .end((err, res) => {
           expect(res).to.have.status(200);
           const data = JSON.parse(res.text);
-          //console.log(data);
           expect(data[0].message).to.equal('User found successfully');
           done();
         });
@@ -198,6 +255,21 @@ describe('## API Test', () => {
           done();
         });
     });
+
+    it('should return pass incorrect', (done) => {
+      request(app)
+        .post('/api/v1/users/signin')
+        .send({
+          userEmail: newUser.userEmail,
+          userPassword: '123',
+        })
+        .end((err, res) => {
+          const data = JSON.parse(res.text);
+          expect(data.message).to.equal('Incorrect password');
+          done();
+        });
+    });
+
     it('should return  bad request error - All fields are required', (done) => {
       request(app)
         .post('/api/v1/users')
@@ -263,6 +335,38 @@ describe('## API Test', () => {
           done();
         });
     });
+    it('should delete one particular user', (done) => {
+      request(app)
+        .delete(`/api/v1/users/${id}`)
+        .send()
+        .end((err, res) => {
+          expect(res).to.have.status(204);
+          done();
+        });
+    });
+    it('should return pass incorrect', (done) => {
+      request(app)
+        .post('/api/v1/users/signin')
+        .send({
+          userEmail: newUser.userEmail,
+          userPassword: newUser.userPassword,
+        })
+        .end((err, res) => {
+          const data = JSON.parse(res.text);
+          expect(data.message).to.equal('user not found');
+          done();
+        });
+    });
+    it('should return no registere users found', (done) => {
+      request(app)
+        .get('/api/v1/users')
+        .send()
+        .end((err, res) => {
+          const data = JSON.parse(res.text);
+          expect(data[0].message).to.equal('No registered Users');
+          done();
+        });
+    });
   });
 
    describe('### Testing Admin Routes', () => {
@@ -274,6 +378,7 @@ describe('## API Test', () => {
         .end((err, res) => {
           const data = JSON.parse(res.text);
           const name = data[1].foodItems.foodName;
+          footitemId = data[1].foodItems.id;
           expect(err).to.be.a('null');
           expect(name).to.equal(newFastFood.foodName);
           expect(data[0].message).to.equal('Item added successfully');
@@ -322,6 +427,41 @@ describe('## API Test', () => {
         });
     });
 
+    it('should return only one particular food item', (done) => {
+      request(app)
+        .get(`/api/v1/admin/${footitemId}`)
+        .send()
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          const data = JSON.parse(res.text);
+          expect(data[0].message).to.equal('item found successfully');
+          done();
+        });
+    });
+
+    it('should update one particular food item', (done) => {
+      request(app)
+        .put(`/api/v1/admin/${footitemId}`)
+        .send({
+          foodName: 'Fried Rice',
+        })
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          const data = JSON.parse(res.text);
+          expect(data[0].message).to.equal('item updated successfully');
+          done();
+        });
+    });
+
+    it('should delete one particular food item', (done) => {
+      request(app)
+        .delete(`/api/v1/admin/${footitemId}`)
+        .send()
+        .end((err, res) => {
+          expect(res).to.have.status(204);
+          done();
+        });
+    });
 
     it('Update should return 404 error - Food item not found ', (done) => {
       request(app)
@@ -343,6 +483,30 @@ describe('## API Test', () => {
           expect(res).to.have.status(404);
           const data = JSON.parse(res.text);
           expect(data.message).to.equal('item not found');
+          done();
+        });
+    });
+
+      it('should return an object of fooditem(s)', (done) => {
+      request(app)
+        .get('/api/v1/admin')
+        .send()
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          const data = JSON.parse(res.text);
+          const dataObject = data[1].foodItems[0];
+          expect(data[0].message).to.equal('No Fast Food Item Found');
+          done();
+        });
+    });
+
+     it('Home route should return the apiDocs object ', (done) => {
+      request(app)
+        .get('/')
+        .send()
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          const data = JSON.parse(res.text);
           done();
         });
     });
