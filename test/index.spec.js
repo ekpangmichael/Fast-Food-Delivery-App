@@ -29,7 +29,7 @@ const newFastFood = {
   price: 'N 1000',
 };
 
-describe('## API Tests', () => {
+describe('## API Test', () => {
   after((done) => {
     server.close();
     done();
