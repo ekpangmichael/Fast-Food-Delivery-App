@@ -1,6 +1,6 @@
 # Fast Food Delivery App
 [![Build Status](https://travis-ci.org/ekpangmichael/Fast-Food-Delivery-App.svg?branch=develop)](https://travis-ci.org/ekpangmichael/Fast-Food-Delivery-App)
-[![Coverage Status](https://coveralls.io/repos/github/ekpangmichael/Fast-Food-Delivery-App/badge.png?branch=production)](https://coveralls.io/github/ekpangmichael/Fast-Food-Delivery-App?branch=production)
+[![Coverage Status](https://coveralls.io/repos/github/ekpangmichael/Fast-Food-Delivery-App/badge.png?branch=production)](https://coveralls.io/github/ekpangmichael/Fast-Food-Delivery-App?branch=production) [![Test Coverage](https://api.codeclimate.com/v1/badges/f146d9a754eb2083cabc/test_coverage)](https://codeclimate.com/github/ekpangmichael/Fast-Food-Delivery-App/test_coverage)
 
 API endpoint for a fast food delivery app, created using node and express with non-persistent data storage
 
@@ -10,7 +10,8 @@ Repo branches
 *   `Master` \- The master branch. Nothing much is here
 *   `Production` \- This branch contains the compiled code and is hosted on heroku [Link Here](https://fast-food-api.herokuapp.com/)
 *   `Develop` - Develop branch was used for development and testing of features - code is written in ES6
-*   `Feature` This branch contains the UI pages for the font-end [Link Here](https://ekpangmichael.github.io/Fast-Food-Delivery-App/)
+*   `Feature` This is the feature branch  
+*   `gh-pages` This branch contains the UI pages for the font-end hosted on github [Link Here](https://ekpangmichael.github.io/Fast-Food-Delivery-App/)
     
     API Documentation
     -----------------
