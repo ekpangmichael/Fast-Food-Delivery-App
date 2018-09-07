@@ -19,11 +19,11 @@ Repo branches
     
     ### Orders Routes
     
-    *   `'/api/v1/orders (method:GET)':` Get all available orders
-    *   `'/api/v1/orders (method:POST)':` Place orders `(Expected params "userId:", "orderId:", "orderName:", "imgUrl:","quantity:", "price:")`
-    *   `'/api/v1/orders/:id (method:GET)':` Get one particular order `(Expected params "id:")`
-    *   `'/api/v1/orders/:id (method:PUT)':` Update a particular order (Expected params "id:" and body)
-    *   `'/api/v1/orders/:id (method:Delete)':` Delete a particular order `(Expected params "id:")`
+    *   `/api/v1/orders (method:GET)` Get all available orders
+    *   `/api/v1/orders (method:POST)` Place orders `(Expected params "userId:", "orderId:", "orderName:", "imgUrl:","quantity:", "price:")`
+    *   `/api/v1/orders/:id (method:GET)` Get one particular order `(Expected params "id:")`
+    *   `/api/v1/orders/:id (method:PUT)` Update a particular order `(Expected params "id:" and body)`
+    *   `/api/v1/orders/:id (method:Delete)` Delete a particular order `(Expected params "id:")`
     
     ### Admin Routes
     
@@ -31,7 +31,7 @@ Repo branches
     *   `/api/v1/admin (method:POST)` Add fast food items `(Expected params "foodName:", "imgUrl:", "category:","quantity:","price:")`
     *   `/api/v1/admin/:id (method:GET)` Get one particular fast food item `(Expected params "id:")`
     *   `/api/v1/admin/:id (method:PUT)` Update a particular fast food item `(Expected params "id:" and body)`
-    *   /api/v1/admin/:id (method:Delete)
+    *   `/api/v1/admin/:id (method:Delete)`
     Delete a particular fast food item `(Expected params "id:")`
     
     ### Users Routes
@@ -41,4 +41,4 @@ Repo branches
     *   `/api/v1/users/:id (method:GET)` Get one particular user `(Expected param "id")`
     *   `/api/v1/users/:id (method:PUT)` Update a user's info `(Expected param "id" and body)`
     *   `/api/v1/users/:id (method:Delete)` Delete a particular user `(Expected param "id")`
-    *   `/api/v1/users/signin (method:POST)` User sigin (Expected param `"userEmail", and "userPassword")`
+    *   `/api/v1/users/signin (method:POST)` User sigmin `(Expected param "userEmail", and "userPassword")`
