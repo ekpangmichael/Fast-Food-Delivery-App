@@ -10,7 +10,7 @@ Repo branches
 *   `Master` \- The master branch. Nothing much is here
 *   `Production` \- This branch contains the compiled code and is hosted on heroku
 *   `Develop` - Develop branch was used for development and testing of features - code is written in ES6
-*   `Feature` This branch contains the UI pages for the font-end
+*   `Feature`- This branch contains the UI pages for the font-end
     
     API Documentation
     -----------------
