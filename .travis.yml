@@ -1,6 +1,9 @@
 language: node_js
 node_js: 
   - "stable"
+  env:
+  global:
+    - CODECLIMATE_REPO_TOKEN=f20205d9359a1d70cf0a56b19b484b059e893a8f916ce34646b9ae61a53447c5
 before_install:
     - "npm install"
 after_success:
