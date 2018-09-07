@@ -39,6 +39,6 @@ Repo branches
     *   `/api/v1/users (method:GET)` Get all registered users
     *   `/api/v1/users (method:POST)` user registration `(Expected params "userName", "userEmail", "userAddress", "userPassword")`
     *   `/api/v1/users/:id (method:GET)` Get one particular user `(Expected param "id")`
-    *   `/api/v1/users/:id (method:PUT)` Update a user's info `(Expected param "id" and body)`
+    *   `/api/v1/users/:id (method:PUT)` Update a user's info `(Expected params "id" and body)`
     *   `/api/v1/users/:id (method:Delete)` Delete a particular user `(Expected param "id")`
-    *   `/api/v1/users/signin (method:POST)` User sigmin `(Expected param "userEmail", and "userPassword")`
+    *   `/api/v1/users/signin (method:POST)` User signin `(Expected params "userEmail", and "userPassword")`
