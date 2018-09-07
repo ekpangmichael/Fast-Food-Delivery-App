@@ -58,24 +58,25 @@ app.post('/api/v1/users/signin', _user2.default.userSigin);
 var apiDocs = {
   orders: {
     '/api/v1/orders (method:GET)': 'Get all available orders ',
-    '/api/v1/orders (method:POST)': 'Create orders ',
-    '/api/v1/orders/:id (method:GET)': 'Get one particular order ',
-    '/api/v1/orders/:id (method:PUT)': 'Upadate a particular order ',
-    '/api/v1/orders/:id (method:Delete)': 'Delete a particular order '
+    '/api/v1/orders (method:POST)': 'Place orders (Expected params  "userId:", "orderId:", "orderName:", "imgUrl:","quantity:", "price:"',
+    '/api/v1/orders/:id (method:GET)': 'Get one particular order(Expected params "id:")',
+    '/api/v1/orders/:id (method:PUT)': 'Upadate a particular order (Expected params "id:" and body) ',
+    '/api/v1/orders/:id (method:Delete)': 'Delete a particular order (Expected params "id:")',
   },
   admin: {
     '/api/v1/admin (method:GET)': 'Get all fast food items ',
-    '/api/v1/admin (method:POST)': 'Add fast food items ',
-    '/api/v1/admin/:id (method:GET)': 'Get one particular fast food item ',
-    '/api/v1/admin/:id (method:PUT)': 'Upadte a particular fast food item ',
-    '/api/v1/admin/:id (method:Delete)': 'Delete a particular fast food item'
+    '/api/v1/admin (method:POST)': 'Add fast food items (Expected params "foodName:", "imgUrl:", "category:","quantity:","price:" ',
+    '/api/v1/admin/:id (method:GET)': 'Get one particular fast food item (Expected params "id:")',
+    '/api/v1/admin/:id (method:PUT)': 'Upadte a particular fast food item (Expected params "id:" and body) ',
+    '/api/v1/admin/:id (method:Delete)': 'Delete a particular fast food item (Expected params "id:")',
   },
   users: {
     '/api/v1/users (method:GET)': 'Get all registered users ',
     '/api/v1/users (method:POST)': 'user registration (Expected params "userName":", "userEmail",  "userAddress", "userPassword") ',
     '/api/v1/users/:id (method:GET)': 'Get one particular user (Expected param "id") ',
-    '/api/v1/users/:id (method:PUT)': 'Update a user info',
-    '/api/v1/users/:id (method:Delete)': 'Delete a particular user (Expected param "id")'
+    '/api/v1/users/:id (method:PUT)': 'Update a user info (Expected param "id" and body)',
+    '/api/v1/users/:id (method:Delete)': 'Delete a particular user (Expected param "id")',
+    '/api/v1/users/signin (method:POST)': 'Delete a particular user (Expected param "userEmail", "userPassword")',
   }
 
 };
