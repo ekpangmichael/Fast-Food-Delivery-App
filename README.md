@@ -10,7 +10,8 @@ Repo branches
 *   `Master` \- The master branch. Nothing much is here
 *   `Production` \- This branch contains the compiled code and is hosted on heroku [Link Here](https://fast-food-api.herokuapp.com/)
 *   `Develop` - Develop branch was used for development and testing of features - code is written in ES6
-*   `Feature` This branch contains the UI pages for the font-end [Link Here](https://ekpangmichael.github.io/Fast-Food-Delivery-App/)
+*   `Feature` This is the feature branch  
+*   `gh-pages` This branch contains the UI pages for the font-end hosted on github [Link Here](https://ekpangmichael.github.io/Fast-Food-Delivery-App/)
     
     API Documentation
     -----------------
