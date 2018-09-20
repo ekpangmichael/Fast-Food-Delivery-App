@@ -50,7 +50,7 @@ $ npm run coverage
 $ npm run build
 ```
 
-##API Documentation
+## API Documentation
 > The Api is hosted on heroku URL https://fast-food-api.herokuapp.com/
 
 ### Order endpoints `/api/v1/orders`
@@ -84,4 +84,4 @@ $ npm run build
 | POST   | /users/signin   | User login                | `{userEmail, userPassword}`                           |
 | GET    | /users/:id      | Get one user              | `{id}`                                                |
 | PUT    | /users/:id      | Update a user             | `{id, body}`                                          |
-| DELETE | /users/:id      | Delete a users            | `{id}`                                                |                                                    
+| DELETE | /users/:id      | Delete a users            | `{id}`                                                |
