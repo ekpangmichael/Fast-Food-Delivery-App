@@ -23,7 +23,7 @@ Make sure you have installed the following
 1. [NodeJS](https://nodejs.org)
 2. [Git](https://git-scm.com/downloads)
 
-## Get Started
+## Getting Started
 
 ```bash
 $ git clone https://github.com/ekpangmichael/Fast-Food-Delivery-App.git
