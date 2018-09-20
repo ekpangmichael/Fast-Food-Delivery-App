@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">43.48% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>10/23</span>
+        <span class='fraction'>23/23</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">70% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>5/20</span>
+        <span class='fraction'>14/20</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,16 +35,16 @@
         <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40.91% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>9/22</span>
+        <span class='fraction'>22/22</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -138,36 +138,36 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -213,24 +213,24 @@ class FoodItems {
   //  Update item
 &nbsp;
   updateItem(id, data) {
-    const item = <span class="cstat-no" title="statement not covered" >this.findOneItem(id);</span>
-    const index = <span class="cstat-no" title="statement not covered" >this.foodItems.indexOf(item);</span>
-<span class="cstat-no" title="statement not covered" >    this.foodItems[index].foodName = data.foodName || item.foodName;</span>
-<span class="cstat-no" title="statement not covered" >    this.foodItems[index].imgUrl = data.imgUrl || item.imgUrl;</span>
-<span class="cstat-no" title="statement not covered" >    this.foodItems[index].category = data.category || item.category;</span>
-<span class="cstat-no" title="statement not covered" >    this.foodItems[index].quantity = data.quantity || item.quantity;</span>
-<span class="cstat-no" title="statement not covered" >    this.foodItems[index].price = data.price || item.price;</span>
-<span class="cstat-no" title="statement not covered" >    this.foodItems[index].modifiedDate = moment.now();</span>
-<span class="cstat-no" title="statement not covered" >    return this.foodItems[index];</span>
+    const item = this.findOneItem(id);
+    const index = this.foodItems.indexOf(item);
+    this.foodItems[index].foodName = data.foodName || <span class="branch-1 cbranch-no" title="branch not covered" >item.foodName;</span>
+    this.foodItems[index].imgUrl = data.imgUrl || item.imgUrl;
+    this.foodItems[index].category = data.category || item.category;
+    this.foodItems[index].quantity = data.quantity || item.quantity;
+    this.foodItems[index].price = data.price || item.price;
+    this.foodItems[index].modifiedDate = moment.now();
+    return this.foodItems[index];
   }
 &nbsp;
   // Delete a particular order
 &nbsp;
   deleteItem(id) {
-    const item = <span class="cstat-no" title="statement not covered" >this.findOneItem(id);</span>
-    const index = <span class="cstat-no" title="statement not covered" >this.foodItems.indexOf(item);</span>
-<span class="cstat-no" title="statement not covered" >    this.foodItems.splice(index, 1);</span>
-<span class="cstat-no" title="statement not covered" >    return {};</span>
+    const item = this.findOneItem(id);
+    const index = this.foodItems.indexOf(item);
+    this.foodItems.splice(index, 1);
+    return {};
   }
 }
 &nbsp;
@@ -241,7 +241,7 @@ export default new FoodItems();
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Sep 06 2018 09:30:35 GMT-0700 (Pacific Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Sep 19 2018 10:00:36 GMT-0700 (Pacific Daylight Time)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>

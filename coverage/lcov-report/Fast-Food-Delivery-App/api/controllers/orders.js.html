@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">76.92% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>20/26</span>
+        <span class='fraction'>26/26</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>12/16</span>
+        <span class='fraction'>16/16</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,16 +35,16 @@
         <span class='fraction'>5/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">76.92% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>20/26</span>
+        <span class='fraction'>26/26</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -119,43 +119,43 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -178,8 +178,8 @@ const Order = {
   getAllOrders(req, res) {
     let orderMesage = '';
     const order = OrdersModel.findAllOrders();
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (order.length === 0) {
-<span class="cstat-no" title="statement not covered" >      orderMesage = 'Order  is empty';</span>
+    if (order.length === 0) {
+      orderMesage = 'Order  is empty';
     } else {
       orderMesage = 'successful';
     }
@@ -189,30 +189,30 @@ const Order = {
 &nbsp;
   getOneOrder(req, res) {
     const order = OrdersModel.findOneOrder(req.params.id);
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (!order) {
+    if (!order) {
       return res.status(404).send({ message: 'Order not found' });
     }
-<span class="cstat-no" title="statement not covered" >    return res.status(200).send([{ message: 'Order found successfully' }, { orders: order }]);</span>
+    return res.status(200).send([{ message: 'Order found successfully' }, { orders: order }]);
   },
 &nbsp;
   //  update a particular order
   updateOrder(req, res) {
     const order = OrdersModel.findOneOrder(req.params.id);
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (!order) {
+    if (!order) {
       return res.status(404).send({ message: 'Order not found' });
     }
-    const updatedOrder = <span class="cstat-no" title="statement not covered" >OrdersModel.updateOrders(req.params.id, req.body);</span>
-<span class="cstat-no" title="statement not covered" >    return res.status(200).send([{ message: 'Order updated successfully' }, updatedOrder]);</span>
+    const updatedOrder = OrdersModel.updateOrders(req.params.id, req.body);
+    return res.status(200).send([{ message: 'Order updated successfully' }, updatedOrder]);
   },
 &nbsp;
   // deleta a particular order
   deleteOrder(req, res) {
     const order = OrdersModel.findOneOrder(req.params.id);
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (!order) {
+    if (!order) {
       return res.status(404).send({ message: 'Order not found' });
     }
-    const ref = <span class="cstat-no" title="statement not covered" >OrdersModel.deleteOrders(req.params.id);</span>
-<span class="cstat-no" title="statement not covered" >    return res.status(204).send([{ mesage: 'Order deleted successfully' }, ref]);</span>
+    const ref = OrdersModel.deleteOrders(req.params.id);
+    return res.status(204).send([{ mesage: 'Order deleted successfully' }, ref]);
   },
 };
 &nbsp;
@@ -223,7 +223,7 @@ export default Order;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Sep 06 2018 09:30:35 GMT-0700 (Pacific Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Sep 19 2018 10:00:36 GMT-0700 (Pacific Daylight Time)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>
