@@ -78,7 +78,7 @@ $ npm run build
 ### Users endpoints `/api/v1/users`
 
 | method | route           | description               | data                                                  |
-| ------ | ----------------|---------------------=---- | ------------------------------------------------------|
+| ------ | ----------------|-------------------------- | ------------------------------------------------------|
 | GET    | /users          | Get all registered users  |                                                       |
 | POST   | /users/         | User registration         | `{userName, userEmail, userAddress, userPassword}`    |
 | POST   | /users/signin   | User login                | `{userEmail, userPassword}`                           |
