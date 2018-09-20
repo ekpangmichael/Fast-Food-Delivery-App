@@ -7,7 +7,7 @@
 ## Introduction
 API endpoint for a fast food delivery app, created using node and express with non-persistent data storage
 
-# Repo Branches
+# Main Repo Branches
 
 *   `Master` \- The master branch. Nothing much is here
 *   `Production` \- This branch contains the compiled code and is hosted on heroku [Link Here](https://fast-food-api.herokuapp.com/)
