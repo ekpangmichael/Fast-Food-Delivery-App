@@ -1,5 +1,6 @@
 # Fast Food Delivery App
 > Fast-Food delivery app for a restaurant.
+
 [![Build Status](https://travis-ci.org/ekpangmichael/Fast-Food-Delivery-App.svg?branch=develop)](https://travis-ci.org/ekpangmichael/Fast-Food-Delivery-App)
 [![Coverage Status](https://coveralls.io/repos/github/ekpangmichael/Fast-Food-Delivery-App/badge.png?branch=production)](https://coveralls.io/github/ekpangmichael/Fast-Food-Delivery-App?branch=production) [![Test Coverage](https://api.codeclimate.com/v1/badges/f146d9a754eb2083cabc/test_coverage)](https://codeclimate.com/github/ekpangmichael/Fast-Food-Delivery-App/test_coverage)
 
@@ -12,7 +13,7 @@ API endpoint for a fast food delivery app, created using node and express with n
 *   `Production` \- This branch contains the compiled code and is hosted on heroku [Link Here](https://fast-food-api.herokuapp.com/)
 *   `Develop` - Develop branch was used for development 
 *   `Feature` This is the feature branch it contains the UI folder and files 
-*   `Feature-api` This is the features branch it contains for testing of new features before merging to develop 
+*   `Feature-api` This is the api branch it is used for testing of new features before merging to develop 
 *   `gh-pages` This branch contains the UI pages for the font-end hosted on github [Link Here](https://ekpangmichael.github.io/Fast-Food-Delivery-App/)
 
 ## Requirement
@@ -22,7 +23,7 @@ Make sure you have installed the following
 1. [NodeJS](https://nodejs.org)
 2. [Git](https://git-scm.com/downloads)
 
-## Install and run locally
+## Get Started
 
 ```bash
 $ git clone https://github.com/ekpangmichael/Fast-Food-Delivery-App.git
@@ -48,17 +49,15 @@ $ npm run coverage
 ```bash
 $ npm run build
 ```
-    
-    API Documentation
-    -----------------
-    
-    > The Api is hosted on heroku URL https://fast-food-api.herokuapp.com/
+
+##API Documentation
+> The Api is hosted on heroku URL https://fast-food-api.herokuapp.com/
 
 ### Order endpoints `/api/v1/orders`
 
 | method | route            | description          | data                                                    |
 | ------ | ---------------- | -------------------- | --------------------------------------------------------|
-| GET    | /orders          | Get all users orders |                                 |
+| GET    | /orders          | Get all users orders |                                                         |
 | POST   | /orders/         | Place an order       | `{userId, orderId, orderName, imgUrl, quantity, price}` |
 | GET    | /orders/:id      | Get an order         | `{id}`                                                  |
 | PUT    | /orders/:id      | Update order status  | `{id, body}`                                            |
@@ -68,12 +67,13 @@ $ npm run build
 ### Admin endpoints `/api/v1/admin`
 
 | method | route           | description            | data                                                    |
-| ------ | ----------------|---------------------   | --------------------------------------------------------|
+| ------ | ----------------|------------------------| --------------------------------------------------------|
 | GET    | /admin          | Get all fast food items|                                                         |
 | POST   | /admin/         | Add fast food items    | `{foodName, imgUrl, category, quantity, price}`         |
 | GET    | /admin/:id      | Get one fast food item | `{id}`                                                  |
 | PUT    | /admin/:id      | Update a fast food item| `{id, body}`                                            |
 | DELETE | /admin/:id      | Delete a fast food item| `{id}`                                                  |
+
     
 ### Users endpoints `/api/v1/users`
 
@@ -84,5 +84,4 @@ $ npm run build
 | POST   | /users/signin   | User login                | `{userEmail, userPassword}`                           |
 | GET    | /users/:id      | Get one user              | `{id}`                                                |
 | PUT    | /users/:id      | Update a user             | `{id, body}`                                          |
-| DELETE | /users/:id      | Delete a users            | `{id}`                                                |   
-    
+| DELETE | /users/:id      | Delete a users            | `{id}`                                                |                                                    
