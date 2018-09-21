@@ -18,7 +18,7 @@ API endpoint for a fast food delivery app, created using node and express with n
 
 ## Requirement
 
-Make sure you have installed the following
+Make sure you have installed the following softwares 
 
 1. [NodeJS](https://nodejs.org)
 2. [Git](https://git-scm.com/downloads)
