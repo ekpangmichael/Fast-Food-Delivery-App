@@ -2,12 +2,12 @@
 > Fast-Food delivery app for a restaurant.
 
 [![Build Status](https://travis-ci.org/ekpangmichael/Fast-Food-Delivery-App.svg?branch=develop)](https://travis-ci.org/ekpangmichael/Fast-Food-Delivery-App)
-[![Coverage Status](https://coveralls.io/repos/github/ekpangmichael/Fast-Food-Delivery-App/badge.png?branch=production)](https://coveralls.io/github/ekpangmichael/Fast-Food-Delivery-App?branch=production) [![Test Coverage](https://api.codeclimate.com/v1/badges/f146d9a754eb2083cabc/test_coverage)](https://codeclimate.com/github/ekpangmichael/Fast-Food-Delivery-App/test_coverage)
+[![Coverage Status](https://coveralls.io/repos/github/ekpangmichael/Fast-Food-Delivery-App/badge.png?branch=develop)](https://coveralls.io/github/ekpangmichael/Fast-Food-Delivery-App?branch=develop) [![Test Coverage](https://api.codeclimate.com/v1/badges/f146d9a754eb2083cabc/test_coverage)](https://codeclimate.com/github/ekpangmichael/Fast-Food-Delivery-App/test_coverage)
 
 ## Introduction
 API endpoint for a fast food delivery app, created using node and express with non-persistent data storage
 
-# Repo Branches
+# Main Repo Branches
 
 *   `Master` \- The master branch. Nothing much is here
 *   `Production` \- This branch contains the compiled code and is hosted on heroku [Link Here](https://fast-food-api.herokuapp.com/)
