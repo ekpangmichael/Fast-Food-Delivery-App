@@ -26,15 +26,17 @@ class User {
     return newUser;
   }
 
-  //  returns a particular user
+  //  Returns a particular user
 
   findOneUser(id) {
     return this.users.find(user => user.id === id);
   }
+  // Check if the email already exit
 
   userExistEmail(email) {
     return this.users.find(user => user.userEmail === email);
   }
+  // Check if a user exit with that email
 
   userSigin(email) {
     return this.users.find(user => user.userEmail === email);
