@@ -18,7 +18,11 @@ API endpoint for a fast food delivery app, created using node and express with n
 
 ## Requirement
 
+<<<<<<< HEAD
 Make sure you have installed the following softwares
+=======
+Make sure you have installed the following
+>>>>>>> parent of 4ecfec0... Edited the readme file
 
 1. [NodeJS](https://nodejs.org)
 2. [Git](https://git-scm.com/downloads)
