@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 node_modules
 # Ignore test-related files
 coverage
+=======
+node_modules
+>>>>>>> 55a0141cb010a251163d49d0ae4a451b6a06894d

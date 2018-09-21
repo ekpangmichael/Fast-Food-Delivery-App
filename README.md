@@ -1,3 +1,4 @@
+| DELETE | /users/:id      | Delete a users            | `{id}`                                                |
 # Fast Food Delivery App
 > Fast-Food delivery app for a restaurant.
 
