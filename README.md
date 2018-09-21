@@ -9,7 +9,7 @@ API endpoint for a fast food delivery app, created using node and express with n
 
 # Main Repo Branches
 
-*   `Master` \- The master branch. Nothing much is here
+*   `Master` \- The master branch. 
 *   `Production` \- This branch contains the compiled code and is hosted on heroku [Link Here](https://fast-food-api.herokuapp.com/)
 *   `Develop` - Develop branch was used for development 
 *   `Feature` This is the feature branch it contains the UI folder and files 
