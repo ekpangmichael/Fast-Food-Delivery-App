@@ -30,7 +30,7 @@ Make sure you have installed the following
 $ git clone https://github.com/ekpangmichael/Fast-Food-Delivery-App.git
 $ cd Fast-Food-Delivery-App
 
-$ npm install
+$ npm install - To install all the dependencies  
 $ npm run dev-start - to start the development server
 ```
 

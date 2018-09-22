@@ -27,7 +27,7 @@ class FoodItems {
     return newOrders;
   }
 
-  //  returns a particular oder
+  //  returns a particular order
 
   findOneOrder(id) {
     return this.orders.find(order => order.id === id);

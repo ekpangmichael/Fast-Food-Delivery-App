@@ -36,7 +36,7 @@ class User {
   userExistEmail(email) {
     return this.users.find(user => user.userEmail === email);
   }
-  // Check if a user exit with that email
+  // Check if a user exit with that same email
 
   userSigin(email) {
     return this.users.find(user => user.userEmail === email);
