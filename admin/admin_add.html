@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<mata charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="chops is a fast-food delivery web app that enables user to order for food online">
+	<meta name="keywords" content="fast food, fast food delivery, order fast food online">
+  	<meta name="author" content="Ekpang Michael">
+  	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<title>Fast Food Delivery App | Admin Area - Add Fast Food Items</title>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div id="logo">
+				<a href="../index.html"><img src="https://res.cloudinary.com/weezyval/image/upload/v1535674062/fastfood/logo.png"></a>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="../users/sign_in.html">Sign-in</a></li>
+					<li><a href="../users/sign_up.html">Sign-up</li>
+					<li><a href="../users/cart.html">Cart</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+
+	<section class="food-items">
+		<div class="container">
+			<aside id="admin-menu">
+  				<h3 class="header-bg">Admin Menu</h3>
+  				<nav>
+  					<ul>
+  						<li><a href="admin_recent_orders.html">Recent Orders</a></li>
+  						<li><a href="admin_all_orders.html">All Orders</a></li>
+  						<li><a href="admin_add.html" class="active">Add Fast Food</a></li>
+  						<li><a href="admin_edit.html" >Edit/Delete</a></li>
+  					</ul>
+  				</nav>
+  				<!--Stats-->
+  				<h3 class="header-bg">Site Statistics</h3>
+  				<nav>
+  					<ul>
+  						<li>Total Users: </li>
+  						<li>Total Orders: </li>
+  						<li>Recent Orders: </li>
+  						
+  					</ul>
+  				</nav>
+			</aside>
+			<div class="admin-category">
+				<div id="signup">
+	  				<h3 class="header-bg">Add Food Items</h3>
+	  				<form class="register">
+	  					<div>
+	  						<label>Item Name *</label>
+	  						<input type="text" name="Fullname">
+	  					</div>
+	  					<div>
+	  						<label>Price *</label>
+	  						<input type="number" name="price">
+	  					</div>
+	  					<div>
+	  						<label>Quantity *</label>
+	  						<input type="text" name="quantity">
+	  					</div>
+	  					<div>
+	  						<label>Select Category *</label>
+	  						<select>
+	  							<option value="meal">Meal</option>
+	  							<option value="Sauces">Sauces</option>
+	  						</select>
+	  					</div>
+	  					<div>
+	  						<label>Item Image Url *</label>
+	  						<input type="text" name="Image-url">
+	  					</div>
+	  					<button class="button" type="submit">Send</button>
+	  				</form>
+				</div>
+			</div>
+
+			
+		</div>
+	</section>
+
+
+
+
+	<footer class="sticky">
+		<p> Chops - Fast food Delivery App | copyright &copy; 2018</p>
+	</footer>
+
+</body>
+</html>
