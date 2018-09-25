@@ -19,10 +19,10 @@ const newOrders = {
 };
 
 const newUser = {
-  userName: 'Ekpang Michael',
-  userEmail: 'Ekpang@gmail.com',
-  userAddress: 'Lagos',
-  userPassword: 'test123',
+  name: 'Ekpang Michael',
+  email: 'Ekpang@gmail.com',
+  address: 'Lagos',
+  password: 'test123',
 };
 
 const newFastFood = {
@@ -82,7 +82,7 @@ describe('## API Test', () => {
           done();
         });
     });
-   
+
     it('should return bad request error - All fields are required', (done) => {
       request(app)
         .post('/api/v1/orders')
@@ -170,7 +170,7 @@ describe('## API Test', () => {
     });
   });
 
-   describe('### Testing Users Routes', () => {
+  describe('### Testing Users Routes', () => {
     it('should create a new user and get back a response', (done) => {
 
       request(app)
@@ -178,10 +178,10 @@ describe('## API Test', () => {
         .send(newUser)
         .end((err, res) => {
           const data = JSON.parse(res.text);
-          const name = data[1].users.userName;
+          const name = data[1].users.name;
           id = data[1].users.id;
           expect(err).to.be.a('null');
-          expect(name).to.equal(newUser.userName);
+          expect(name).to.equal(newUser.name);
           expect(data[0].message).to.equal('Registration successful');
           done();
         });
@@ -191,14 +191,14 @@ describe('## API Test', () => {
       request(app)
         .post('/api/v1/users/signin')
         .send({
-          userEmail: newUser.userEmail,
-          userPassword: newUser.userPassword,
+          email: newUser.email,
+          password: newUser.password,
         })
         .end((err, res) => {
           const data = JSON.parse(res.text);
-          const name = data[1].users.userName;
+          const name = data[1].users.name;
           expect(err).to.be.a('null');
-          expect(name).to.equal(newUser.userName);
+          expect(name).to.equal(newUser.name);
           expect(data[0].message).to.equal('User login successfully');
           done();
         });
@@ -207,7 +207,7 @@ describe('## API Test', () => {
       request(app)
         .put(`/api/v1/users/${id}`)
         .send({
-          userAddress: 'Calabar',
+          address: 'Calabar',
         })
         .end((err, res) => {
           expect(res).to.have.status(200);
@@ -243,14 +243,14 @@ describe('## API Test', () => {
       request(app)
         .post('/api/v1/users/signin')
         .send({
-          userEmail: newUser.userEmail,
-          userPassword: newUser.userPassword,
+          email: newUser.email,
+          password: newUser.password,
         })
         .end((err, res) => {
           const data = JSON.parse(res.text);
-          const pass = data[1].users.userPassword;
+          const pass = data[1].users.password;
           expect(err).to.be.a('null');
-          expect(pass).not.to.equal(newUser.userPassword);
+          expect(pass).not.to.equal(newUser.password);
           expect(data[0].message).to.equal('User login successfully');
           done();
         });
@@ -260,8 +260,8 @@ describe('## API Test', () => {
       request(app)
         .post('/api/v1/users/signin')
         .send({
-          userEmail: newUser.userEmail,
-          userPassword: '123',
+          email: newUser.email,
+          password: '123',
         })
         .end((err, res) => {
           const data = JSON.parse(res.text);
@@ -274,8 +274,8 @@ describe('## API Test', () => {
       request(app)
         .post('/api/v1/users')
         .send({
-          userEmail: newUser.userEmail,
-          userPassword: newUser.userPassword,
+          email: newUser.email,
+          password: newUser.password,
         })
         .end((err, res) => {
           expect(res).to.have.status(400);
@@ -348,8 +348,8 @@ describe('## API Test', () => {
       request(app)
         .post('/api/v1/users/signin')
         .send({
-          userEmail: newUser.userEmail,
-          userPassword: newUser.userPassword,
+          email: newUser.email,
+          password: newUser.password,
         })
         .end((err, res) => {
           const data = JSON.parse(res.text);

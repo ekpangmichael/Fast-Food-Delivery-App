@@ -15,10 +15,10 @@ class User {
   userRegistration(data) {
     const newUser = {
       id: uuid.v4(),
-      userName: data.userName || '',
-      userEmail: data.userEmail || '',
-      userAddress: data.userAddress || '',
-      userPassword: bcrypt.hashSync(data.userPassword, saltRounds) || '',
+      name: data.name || '',
+      email: data.email || '',
+      address: data.address || '',
+      password: bcrypt.hashSync(data.password, saltRounds) || '',
       regDate: moment.now(),
       modifiedDate: moment.now(),
     };
@@ -34,12 +34,12 @@ class User {
   // Check if the email already exit
 
   userExistEmail(email) {
-    return this.users.find(user => user.userEmail === email);
+    return this.users.find(user => user.email === email);
   }
   // Check if a user exit with that email
 
   userSigin(email) {
-    return this.users.find(user => user.userEmail === email);
+    return this.users.find(user => user.email === email);
   }
   //  returns all users
 
@@ -53,9 +53,9 @@ class User {
     const user = this.findOneUser(id);
     const index = this.users.indexOf(user);
     this.users[index].id = user.id;
-    this.users[index].userName = data.userName || user.userName;
-    this.users[index].userEmail = data.userEmail || user.userEmail;
-    this.users[index].userAddress = data.userAddress || user.userAddress;
+    this.users[index].name = data.name || user.name;
+    this.users[index].email = data.email || user.email;
+    this.users[index].address = data.address || user.address;
     this.users[index].modifiedDate = moment.now();
     return this.users[index];
   }

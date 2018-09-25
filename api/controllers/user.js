@@ -5,11 +5,11 @@ const User = {
 
   // Register User
   createUser(req, res) {
-    if (!req.body.userName || !req.body.userEmail || !req.body.userPassword
-      || !req.body.userAddress) {
+    if (!req.body.name || !req.body.email || !req.body.password
+      || !req.body.address) {
       return res.status(400).send({ message: 'All fields are required' });
     }
-    const checkUser = UsersModel.userExistEmail(req.body.userEmail);
+    const checkUser = UsersModel.userExistEmail(req.body.email);
     if (checkUser) {
       return res.status(400).send({ message: 'Email already Taken!' });
     }
@@ -39,12 +39,12 @@ const User = {
   },
 
   userSigin(req, res) {
-    const pass = req.body.userPassword;
-    const user = UsersModel.userSigin(req.body.userEmail);
+    const pass = req.body.password;
+    const user = UsersModel.userSigin(req.body.email);
     if (!user) {
       return res.status(404).send({ message: 'user not found' });
     }
-    return bcrypt.compare(pass, user.userPassword).then((result) => {
+    return bcrypt.compare(pass, user.password).then((result) => {
       if (result === true) {
         return res.status(200).send([{ message: 'User login successfully' }, { users: user }]);
       }
