@@ -8,21 +8,6 @@
 ## Introduction
 API endpoint for a fast food delivery app, created using node and express with non-persistent data storage
 
-# Main Repo Branches
-
-*   `Master` \- The master branch. Nothing much is here
-*   `Production` \- This branch contains the compiled code and is hosted on heroku [Link Here](https://fast-food-api.herokuapp.com/)
-*   `Develop` - Develop branch was used for development 
-*   `Feature` This is the feature branch it contains the UI folder and files 
-*   `Feature-api` This is the api branch it is used for testing of new features before merging to develop 
-*   `gh-pages` This branch contains the UI pages for the font-end hosted on github [Link Here](https://ekpangmichael.github.io/Fast-Food-Delivery-App/)
-
-## Requirement
-
-Make sure you have installed the following
-
-1. [NodeJS](https://nodejs.org)
-2. [Git](https://git-scm.com/downloads)
 
 ## Getting Started
 
@@ -81,8 +66,8 @@ $ npm run build
 | method | route           | description               | data                                                  |
 | ------ | ----------------|-------------------------- | ------------------------------------------------------|
 | GET    | /users          | Get all registered users  |                                                       |
-| POST   | /users/         | User registration         | `{userName, userEmail, userAddress, userPassword}`    |
-| POST   | /users/signin   | User login                | `{userEmail, userPassword}`                           |
+| POST   | /users/         | User registration         | `{name, email, address, password}`    |
+| POST   | /users/signin   | User login                | `{email, password}`                           |
 | GET    | /users/:id      | Get one user              | `{id}`                                                |
 | PUT    | /users/:id      | Update a user             | `{id, body}`                                          |
 | DELETE | /users/:id      | Delete a users            | `{id}`                                                |
