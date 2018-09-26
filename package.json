@@ -18,7 +18,7 @@
     "url": "git+https://github.com/ekpangmichael/Fast-Food-Delivery-App.git"
   },
   "engines": {
-  "node": "8.11.1"
+    "node": "8.11.1"
   },
   "keywords": [],
   "author": "",
@@ -44,15 +44,12 @@
     "mocha": "^5.2.0",
     "mocha-lcov-reporter": "^1.3.0",
     "npm": "^6.4.1",
-    "supertest": "^3.2.0",
-    "supertest-as-promised": "^4.0.2"
+    "supertest": "^3.2.0"
   },
   "dependencies": {
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "moment": "^2.22.2",
-    "morgan": "^1.9.0",
-    "uuid": "^3.3.2"
+    "morgan": "^1.9.0"
   }
 }

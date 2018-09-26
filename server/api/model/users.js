@@ -1,8 +1,8 @@
-import moment from 'moment';
-import uuid from 'uuid';
 import bcrypt from 'bcrypt';
 
 const saltRounds = 10;
+const date = new Date();
+const uid = Math.floor((Math.random() * 100000000) + 1);
 
 class User {
   //  class constructor
@@ -14,13 +14,13 @@ class User {
 
   userRegistration(data) {
     const newUser = {
-      id: uuid.v4(),
+      id: uid,
       name: data.name || '',
       email: data.email || '',
       address: data.address || '',
       password: bcrypt.hashSync(data.password, saltRounds) || '',
-      regDate: moment.now(),
-      modifiedDate: moment.now(),
+      regDate: date,
+      modifiedDate: date,
     };
     this.users.push(newUser);
     return newUser;

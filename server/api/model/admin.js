@@ -1,5 +1,6 @@
-import moment from 'moment';
-import uuid from 'uuid';
+
+const date = new Date();
+const uid = Math.floor((Math.random() * 100000000) + 1);
 
 class FoodItems {
   //  class constructor
@@ -11,14 +12,14 @@ class FoodItems {
 
   createFoodItems(data) {
     const newFoodItems = {
-      id: uuid.v4(),
+      id: uid,
       foodName: data.foodName || '',
       imgUrl: data.imgUrl || '',
       category: data.category || '',
       quantity: data.quantity || '',
       price: data.price || '',
-      OrderDate: moment.now(),
-      modifiedDate: moment.now(),
+      OrderDate: date,
+      modifiedDate: date,
     };
     this.foodItems.push(newFoodItems);
     return newFoodItems;
