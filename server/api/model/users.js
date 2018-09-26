@@ -1,8 +1,11 @@
 import bcrypt from 'bcrypt';
 
-const saltRounds = 10;
 const date = new Date();
-const uid = Math.floor((Math.random() * 100000000) + 1);
+
+function uid() {
+  return Math.random().toString(13).replace('0.', '');
+}
+const saltRounds = 10;
 
 class User {
   //  class constructor
@@ -14,7 +17,7 @@ class User {
 
   userRegistration(data) {
     const newUser = {
-      id: uid,
+      id: uid(),
       name: data.name || '',
       email: data.email || '',
       address: data.address || '',
@@ -56,7 +59,7 @@ class User {
     this.users[index].name = data.name || user.name;
     this.users[index].email = data.email || user.email;
     this.users[index].address = data.address || user.address;
-    this.users[index].modifiedDate = moment.now();
+    this.users[index].modifiedDate = date;
     return this.users[index];
   }
 

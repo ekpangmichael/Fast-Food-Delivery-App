@@ -1,5 +1,9 @@
 const date = new Date();
-const uid = Math.floor((Math.random() * 100000000) + 1);
+
+function uid() {
+  return Math.random().toString(13).replace('0.', '');
+}
+
 class FoodItems {
   //  class constructor
   constructor() {
@@ -11,7 +15,7 @@ class FoodItems {
 
   createOrders(data) {
     const newOrders = {
-      id: uid,
+      id: uid(),
       userId: data.userId || '',
       orderId: data.orderId || '',
       orderName: data.orderName || '',
@@ -48,7 +52,7 @@ class FoodItems {
     this.orders[index].orderName = data.orderName || order.orderName;
     this.orders[index].quantity = data.quantity || order.quantity;
     this.orders[index].price = data.price || order.price;
-    this.orders[index].modifiedDate = moment.now();
+    this.orders[index].modifiedDate = date;
     return this.orders[index];
   }
 
