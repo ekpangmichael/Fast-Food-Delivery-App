@@ -1,7 +1,10 @@
-import moment from 'moment';
-import uuid from 'uuid';
 import bcrypt from 'bcrypt';
 
+const date = new Date();
+
+function uid() {
+  return Math.random().toString(13).replace('0.', '');
+}
 const saltRounds = 10;
 
 class User {
@@ -14,13 +17,13 @@ class User {
 
   userRegistration(data) {
     const newUser = {
-      id: uuid.v4(),
+      id: uid(),
       name: data.name || '',
       email: data.email || '',
       address: data.address || '',
       password: bcrypt.hashSync(data.password, saltRounds) || '',
-      regDate: moment.now(),
-      modifiedDate: moment.now(),
+      regDate: date,
+      modifiedDate: date,
     };
     this.users.push(newUser);
     return newUser;
@@ -56,7 +59,7 @@ class User {
     this.users[index].name = data.name || user.name;
     this.users[index].email = data.email || user.email;
     this.users[index].address = data.address || user.address;
-    this.users[index].modifiedDate = moment.now();
+    this.users[index].modifiedDate = date;
     return this.users[index];
   }
 

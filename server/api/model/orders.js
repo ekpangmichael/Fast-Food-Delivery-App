@@ -1,5 +1,8 @@
-import moment from 'moment';
-import uuid from 'uuid';
+const date = new Date();
+
+function uid() {
+  return Math.random().toString(13).replace('0.', '');
+}
 
 class FoodItems {
   //  class constructor
@@ -12,7 +15,7 @@ class FoodItems {
 
   createOrders(data) {
     const newOrders = {
-      id: uuid.v4(),
+      id: uid(),
       userId: data.userId || '',
       orderId: data.orderId || '',
       orderName: data.orderName || '',
@@ -20,8 +23,8 @@ class FoodItems {
       orderStatus: data.orderStatus || 'pending',
       quantity: data.quantity || '',
       price: data.price || '',
-      OrderDate: moment.now(),
-      modifiedDate: moment.now(),
+      OrderDate: date,
+      modifiedDate: date,
     };
     this.orders.push(newOrders);
     return newOrders;
@@ -49,7 +52,7 @@ class FoodItems {
     this.orders[index].orderName = data.orderName || order.orderName;
     this.orders[index].quantity = data.quantity || order.quantity;
     this.orders[index].price = data.price || order.price;
-    this.orders[index].modifiedDate = moment.now();
+    this.orders[index].modifiedDate = date;
     return this.orders[index];
   }
 
