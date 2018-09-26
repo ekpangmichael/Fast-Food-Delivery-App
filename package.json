@@ -17,6 +17,9 @@
     "type": "git",
     "url": "git+https://github.com/ekpangmichael/Fast-Food-Delivery-App.git"
   },
+  "engines": {
+  "node": "8.11.1"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
