@@ -4,8 +4,8 @@ const Order = {
 
   // create orders
   createOrders(req, res) {
-    if (!req.body.userId || req.body.orderId || req.body.orderName
-      || req.body.quantity || req.body.price || req.body.imgUrl) {
+    if (!req.body.userId || !req.body.orderId || !req.body.orderName
+      || !req.body.quantity || !req.body.price || !req.body.imgUrl) {
       return res.status(400).send({ message: 'All fields are required' });
     }
     const order = OrdersModel.createOrders(req.body);
