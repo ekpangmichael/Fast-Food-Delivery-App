@@ -13,9 +13,6 @@
     "codeclimate": "CODECLIMATE_REPO_TOKEN=f20205d9359a1d70cf0a56b19b484b059e893a8f916ce34646b9ae61a53447c5 codeclimate-test-reporter < ./coverage/lcov.info",
     "dev-start": "babel-watch server/server.js"
   },
-  "engines": {
-  "node": "8.11.1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ekpangmichael/Fast-Food-Delivery-App.git"
