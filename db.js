@@ -3,30 +3,28 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// create an instance of pool
 const pool = new Pool({
-  connectionURL: process.env.DATABASE_URL,
+  connectionString: process.env.DATABASE_URL,
 });
 
-// listen to connect event
 pool.on('connect', () => {
-  console.log('database connected');
+  console.log('database connected!');
 });
 
 
-const createTables = () => {
+// Create Orders Table
+
+const createOrdersTable = () => {
   const queryData =
       `CREATE TABLE IF NOT EXISTS
-      ordersDB(
-        id UUID PRIMARY KEY,
-        userId VARCHAR(128) NOT NULL,
-        orderId UUID NOT NULL,
+      orders(
+        id  PRIMARY KEY,
+        userId integer NOT NULL,
+        orderId integer NOT NULL,
         orderName VARCHAR(128) NOT NULL,
         imgUrl VARCHAR(128) NOT NULL,
         quantity integer NOT NULL,
-        price integer NOT NULL,
-        OrderDate TIMESTAMP,
-        modifiedDate TIMESTAMP
+        price integer NOT NULL
       )`;
 
   pool.query(queryData)
@@ -40,9 +38,17 @@ const createTables = () => {
     });
 };
 
-// Drop Tables
-const dropTables = () => {
-  const queryData = 'DROP TABLE IF EXISTS ordersDB';
+
+// Create User Table
+  const queryData =
+    `CREATE TABLE IF NOT EXISTS
+      users(
+        id  PRIMARY KEY,
+        email VARCHAR(128) UNIQUE NOT NULL,
+        password VARCHAR(128) NOT NULL,
+        name VARCHAR(128) NOT NULL,
+      )`;
+
   pool.query(queryData)
     .then((res) => {
       console.log(res);
@@ -52,14 +58,65 @@ const dropTables = () => {
       console.log(err);
       pool.end();
     });
-};
+}
+
+// Drop orders Table
+ 
+const dropOrdersTable = () => {
+  const queryData = 'DROP TABLE IF EXISTS orders returning *';
+  pool.query(queryData)
+    .then((res) => {
+      console.log(res);
+      pool.end();
+    })
+    .catch((err) => {
+      console.log(err);
+      pool.end();
+    });
+}
+
+// Drop User Table
+ 
+const dropUserTable = () => {
+  const queryData = 'DROP TABLE IF EXISTS users returning *';
+  pool.query(queryData)
+    .then((res) => {
+      console.log(res);
+      pool.end();
+    })
+    .catch((err) => {
+      console.log(err);
+      pool.end();
+    });
+}
+
+// Create All Tables
+
+const createAllTables = () => {
+  createUserTable();
+  createOrdersTable();
+}
+
+ // Drop All Tables
+
+const dropAllTables = () => {
+  dropUserTable();
+  dropOrdersTable();
+}
 
 pool.on('remove', () => {
   console.log('client removed');
   process.exit(0);
 });
 
+
 module.exports = {
-  createTables,
-  dropTables,
+  createOrders,
+  createUserTable,
+  createAllTables,
+  dropUserTable,
+  dropOrdersTable,
+  dropAllTables
 };
+
+require('make-runnable');

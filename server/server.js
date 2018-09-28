@@ -5,7 +5,6 @@ import ordersRouter from './routes/orders';
 import adminRouter from './routes/admin';
 import usersRouter from './routes/users';
 
-
 const app = express();
 
 app.use(express.json());
@@ -14,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api/v1', ordersRouter);
 app.use('/api/v1/admin', adminRouter);
 app.use('/api/v1/users', usersRouter);
+app.use('/api/v1/auth', usersRouter);
 
 const apiDocs = {
   message: 'Welcome to fast food delivery app (api version 1) <a href="https://github.com/ekpangmichael/Fast-Food-Delivery-App">Read docs</a>',
