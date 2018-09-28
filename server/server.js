@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import 'babel-polyfill';
 import ordersRouter from './routes/orders';
 import adminRouter from './routes/admin';
 import usersRouter from './routes/users';

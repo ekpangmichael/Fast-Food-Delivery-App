@@ -1,57 +1,84 @@
-import OrdersModel from '../model/orders';
-// Oder object
-const Order = {
+import db from '../db/dbQuery';
 
-  // create orders
-  createOrders(req, res) {
-    if (!req.body.userId || !req.body.orderId || !req.body.orderName
-      || !req.body.quantity || !req.body.price || !req.body.imgUrl) {
-      return res.status(400).send({ message: 'All fields are required' });
-    }
-    const order = OrdersModel.createOrders(req.body);
-    return res.status(201).send([{ message: 'Item added successfully' }, { orders: order }]);
-  },
-  // get all available orders
+const date = new Date();
 
-  getAllOrders(req, res) {
-    let orderMesage = '';
-    const order = OrdersModel.findAllOrders();
-    if (order.length === 0) {
-      orderMesage = 'Order  is empty';
-    } else {
-      orderMesage = 'successful';
-    }
-    return res.status(200).send([{ message: orderMesage }, { orders: order }]);
-  },
-  // get a partcular order
+const Orders = {
+  async create(req, res) {
+    const text = `INSERT INTO orders(name)
+      VALUES($1)
+      returning *`;
+    const values = [
+      req.body.name,
+    ];
 
-  getOneOrder(req, res) {
-    const order = OrdersModel.findOneOrder(req.params.id);
-    if (!order) {
-      return res.status(404).send({ message: 'Order not found' });
+    try {
+      const { rows } = await db.query(text, values);
+      return res.status(201).send(rows[0]);
+    } catch (error) {
+      return res.status(400).send(error);
     }
-    return res.status(200).send([{ message: 'Order found successfully' }, { orders: order }]);
   },
 
-  //  update a particular order
-  updateOrder(req, res) {
-    const order = OrdersModel.findOneOrder(req.params.id);
-    if (!order) {
-      return res.status(404).send({ message: 'Order not found' });
+  async getAll(req, res) {
+    const findAllQuery = 'SELECT * FROM orders';
+    try {
+      const { rows, rowCount } = await db.query(findAllQuery);
+      return res.status(200).send({ rows, rowCount });
+    } catch(error) {
+      return res.status(400).send(error);
     }
-    const updatedOrder = OrdersModel.updateOrders(req.params.id, req.body);
-    return res.status(200).send([{ message: 'Order updated successfully' }, updatedOrder]);
   },
-
-  // deleta a particular order
-  deleteOrder(req, res) {
-    const order = OrdersModel.findOneOrder(req.params.id);
-    if (!order) {
-      return res.status(404).send({ message: 'Order not found' });
+  
+  async getOne(req, res) {
+    const text = 'SELECT * FROM orders WHERE id = $1';
+    try {
+      const { rows } = await db.query(text, [req.params.id]);
+      if (!rows[0]) {
+        return res.status(404).send({'message': 'orders not found'});
+      }
+      return res.status(200).send(rows[0]);
+    } catch(error) {
+      return res.status(400).send(error)
     }
-    const ref = OrdersModel.deleteOrders(req.params.id);
-    return res.status(204).send([{ mesage: 'Order deleted successfully' }, ref]);
   },
-};
+  
+  async update(req, res) {
+    const findOneQuery = 'SELECT * FROM orders WHERE id=$1';
+    const updateOneQuery =`UPDATE reflections
+      SET success=$1,low_point=$2,take_away=$3,modified_date=$4
+      WHERE id=$5 returning *`;
+    try {
+      const { rows } = await db.query(findOneQuery, [req.params.id]);
+      if(!rows[0]) {
+        return res.status(404).send({'message': 'orders not found'});
+      }
+      const values = [
+        req.body.success || rows[0].success,
+        req.body.low_point || rows[0].low_point,
+        req.body.take_away || rows[0].take_away,
+        moment(new Date()),
+        req.params.id
+      ];
+      const response = await db.query(updateOneQuery, values);
+      return res.status(200).send(response.rows[0]);
+    } catch(err) {
+      return res.status(400).send(err);
+    }
+  },
+  
+ 
+  async delete(req, res) {
+    const deleteQuery = 'DELETE FROM order WHERE id=$1 returning *';
+    try {
+      const { rows } = await db.query(deleteQuery, [req.params.id]);
+      if(!rows[0]) {
+        return res.status(404).send({'message': 'order not found'});
+      }
+      return res.status(204).send({ 'message': 'deleted' });
+    } catch(error) {
+      return res.status(400).send(error);
+    }
+  }
+}
 
-export default Order;
+export default Orders;
