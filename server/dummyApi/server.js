@@ -4,7 +4,6 @@ import ordersRouter from './routes/orders';
 import adminRouter from './routes/admin';
 import usersRouter from './routes/users';
 
-
 const app = express();
 
 app.use(express.json());
