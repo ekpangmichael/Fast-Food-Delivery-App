@@ -6,7 +6,7 @@ dotenv.config();
 
 const Lib = {
   encryptPassword(password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
   },
   comparePassword(hashPassword, password) {
     return bcrypt.compareSync(password, hashPassword);
@@ -17,10 +17,7 @@ const Lib = {
   generateToken(id) {
     const token = jwt.sign({
       userId: id,
-    },
-    process.env.SECRET, { expiresIn: '10d' },
-
-    );
+    }, process.env.SECRET, { expiresIn: '10d' });
     return token;
   },
 };

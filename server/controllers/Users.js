@@ -45,7 +45,7 @@ const User = {
     try {
       const { rows } = await db.query(text, [req.body.email]);
       if (!rows[0]) {
-        return res.status(400).send([{ status: 'fail' }, { message: 'User not found'}]);
+        return res.status(400).send([{ status: 'fail' }, { message: 'User not found' }]);
       }
       if (!Lib.comparePassword(rows[0].password, req.body.password)) {
         return res.status(400).send([{ status: 'fail' }, { message: 'Invalid login details' }]);
