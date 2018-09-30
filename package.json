@@ -11,7 +11,9 @@
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha server/test/*.js -- --require babel-register",
     "coveralls": "npm run coverage -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "codeclimate": "CODECLIMATE_REPO_TOKEN=f20205d9359a1d70cf0a56b19b484b059e893a8f916ce34646b9ae61a53447c5 codeclimate-test-reporter < ./coverage/lcov.info",
-    "dev-start": "babel-watch server/server.js"
+    "dev-start": "babel-watch server/server.js",
+    "migrate": "node --require babel-register server/migrations/db createAll ",
+    "seed": "node --require babel-register server/seeders/seed seedUsers"
   },
   "repository": {
     "type": "git",
@@ -41,7 +43,6 @@
     "http-status": "^1.2.0",
     "install": "^0.12.1",
     "istanbul": "^1.1.0-alpha.1",
-    "make-runnable": "^1.3.6",
     "mocha": "^5.2.0",
     "mocha-lcov-reporter": "^1.3.0",
     "npm": "^6.4.1",
@@ -52,6 +53,7 @@
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
+    "make-runnable": "^1.3.6",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
     "morgan": "^1.9.0",
