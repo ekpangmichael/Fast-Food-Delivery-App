@@ -6,7 +6,7 @@ const router = express.Router();
 
 // admin route
 router.post('/', Admin.create);
-// router.get('/', Admin.getAllFoodItems);
+router.get('/', Admin.getAll);
 // router.get('/:id', Admin.getOneItem);
 // router.put('/:id', Admin.updateItem);
 // router.delete('/:id', Admin.deleteItem);
