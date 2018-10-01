@@ -5,10 +5,10 @@ import Admin from '../controllers/admin';
 const router = express.Router();
 
 // admin route
-router.post('/', Admin.createFoodItems);
-router.get('/', Admin.getAllFoodItems);
-router.get('/:id', Admin.getOneItem);
-router.put('/:id', Admin.updateItem);
-router.delete('/:id', Admin.deleteItem);
+router.post('/', Admin.create);
+// router.get('/', Admin.getAllFoodItems);
+// router.get('/:id', Admin.getOneItem);
+// router.put('/:id', Admin.updateItem);
+// router.delete('/:id', Admin.deleteItem);
 
 export default router;

@@ -14,7 +14,7 @@ const Orders = {
       req.body.quantity,
       req.body.price,
       req.body.imgUrl,
-      processing,
+      processing,2
     ];
 
     try {

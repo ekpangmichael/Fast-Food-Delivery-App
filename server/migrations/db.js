@@ -63,10 +63,37 @@ const createOrders = () => {
     });
 };
 
+// create menu table  Table
+const createMenu = () => {
+  const queryText =
+    `CREATE TABLE IF NOT EXISTS
+      menu(
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(128) NOT NULL,
+        quantity INT NOT NULL,
+        price INT NOT NULL,
+        imageurl VARCHAR(128) NOT NULL,
+        category VARCHAR(128) NOT NULL,
+        created_date TIMESTAMP DEFAULT NOW(),
+        modified_date TIMESTAMP DEFAULT NOW()
+      )`;
+
+  pool.query(queryText)
+    .then((res) => {
+      console.log(res.command);
+      pool.end();
+    })
+    .catch((err) => {
+      console.log(err);
+      pool.end();
+    });
+};
+
 // Create all tables
 const createAll = () => {
   createUsers();
   createOrders();
+  createMenu();
 };
 
 const dropUsersTable = () => {
