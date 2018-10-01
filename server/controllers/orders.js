@@ -1,10 +1,12 @@
 import db from '../db/dbQuery';
 
+const processing = 'New';
+
 // create orders
 const Orders = {
   async create(req, res) {
-    const createQuery = `INSERT INTO orders(name, userid, quantity, price, imageurl)
-      VALUES($1, $2, $3, $4, $5)
+    const createQuery = `INSERT INTO orders(name, userid, quantity, price, imageurl, status)
+      VALUES($1, $2, $3, $4, $5, $6)
       returning *`;
     const values = [
       req.body.name,
@@ -12,6 +14,7 @@ const Orders = {
       req.body.quantity,
       req.body.price,
       req.body.imgUrl,
+      processing,
     ];
 
     try {
@@ -35,9 +38,16 @@ const Orders = {
     }
   },
 
+  // Get all recent orders
+  async getNew(req, res) {
+    const findRecent = 'SELECT * FROM orders WHERE status = $1';
+    try {
+      const { rows, rowCount } = await db.query(findRecent, [processing]);
+      return res.status(200).send({ rows, rowCount });
+    } catch (error) {
+      return res.status(400).send(error);
+    }
+  },
 };
-
-
-
 
 export default Orders;

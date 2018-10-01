@@ -47,6 +47,7 @@ const createOrders = () => {
         userID INT NOT NULL,
         price INT NOT NULL,
         imageUrl VARCHAR(128) NOT NULL,
+        status VARCHAR(128) NOT NULL,
         created_date TIMESTAMP DEFAULT NOW(),
         modified_date TIMESTAMP DEFAULT NOW()
       )`;
@@ -107,6 +108,7 @@ pool.on('remove', () => {
 
 module.exports = {
   createAll,
+  dropOrdersTable,
   dropAll,
 };
 
