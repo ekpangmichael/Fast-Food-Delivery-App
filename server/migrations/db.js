@@ -36,11 +36,40 @@ const createUsers = () => {
     });
 };
 
-const createAll = () => {
-  createUsers();
+// create Order Table
+const createOrders = () => {
+  const queryText =
+    `CREATE TABLE IF NOT EXISTS
+      orders(
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(128) NOT NULL,
+        quantity INT NOT NULL,
+        userID INT NOT NULL,
+        price INT NOT NULL,
+        imageUrl VARCHAR(128) NOT NULL,
+        status VARCHAR(128) NOT NULL,
+        created_date TIMESTAMP DEFAULT NOW(),
+        modified_date TIMESTAMP DEFAULT NOW()
+      )`;
+
+  pool.query(queryText)
+    .then((res) => {
+      console.log(res.command);
+      pool.end();
+    })
+    .catch((err) => {
+      console.log(err);
+      pool.end();
+    });
 };
 
-const dropTable = () => {
+// Create all tables
+const createAll = () => {
+  createUsers();
+  createOrders();
+};
+
+const dropUsersTable = () => {
   const queryText = 'DROP TABLE IF EXISTS users';
   pool.query(queryText)
     .then((res) => {
@@ -53,6 +82,25 @@ const dropTable = () => {
     });
 };
 
+const dropOrdersTable = () => {
+  const queryText = 'DROP TABLE IF EXISTS orders';
+  pool.query(queryText)
+    .then((res) => {
+      console.log(res);
+      pool.end();
+    })
+    .catch((err) => {
+      console.log(err);
+      pool.end();
+    });
+};
+
+
+// drop all tables
+const dropAll = () => {
+  dropOrdersTable();
+  dropUsersTable();
+};
 pool.on('remove', () => {
   console.log('client removed');
   process.exit(0);
@@ -60,7 +108,8 @@ pool.on('remove', () => {
 
 module.exports = {
   createAll,
-  dropTable,
+  dropOrdersTable,
+  dropAll,
 };
 
 require('make-runnable');
