@@ -4,7 +4,7 @@ import Lib from './Lib';
 const User = {
 
   async create(req, res) {
-    if (!req.body.email || !req.body.password) {
+    if (!req.body.email || !req.body.password || !req.body.name || !req.body.address) {
       return res.status(400).send([{ status: 'fail' }, { message: 'All fiels are required' }]);
     }
     if (!Lib.isValidEmail(req.body.email)) {
@@ -13,11 +13,13 @@ const User = {
     const encryptPassword = Lib.encryptPassword(req.body.password);
 
     const createQuery = `INSERT INTO
-      users(email, password)
-      VALUES($1, $2)
+      users(name, email, password, address)
+      VALUES($1, $2, $3, $4)
       returning *`;
     const values = [
+      req.body.name,
       req.body.email,
+      req.body.address,
       encryptPassword,
     ];
 

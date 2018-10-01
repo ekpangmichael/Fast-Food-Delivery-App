@@ -17,7 +17,7 @@ const createUsers = () => {
       users(
         id SERIAL PRIMARY KEY,
         name VARCHAR(128) NOT NULL,
-        email VARCHAR(128) NOT NULL,
+        email VARCHAR(128) UNIQUE NOT NULL,
         password VARCHAR(128) NOT NULL,
         address VARCHAR(128) NOT NULL,
         is_admin BOOL DEFAULT 'false',
