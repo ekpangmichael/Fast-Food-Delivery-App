@@ -1,5 +1,5 @@
 import express from 'express';
-import Users from '../controllers/users';
+import Users from '../controllers/Users';
 import Auth from '../middleware/Auth';
 
 // Express router
