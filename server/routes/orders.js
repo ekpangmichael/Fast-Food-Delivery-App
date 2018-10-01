@@ -1,11 +1,11 @@
 import express from 'express';
-import Orders from '../controllers/orders';
+import Orders from '../controllers/Orders';
 
 // Express router
 const router = express.Router();
 
 // orders route
-router.post('/orders', Orders.create);
-router.get('/orders', Orders.getAll);
+router.post('/', Orders.create);
+// router.get('/orders', Orders.getAll);
 
 export default router;

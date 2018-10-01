@@ -1,5 +1,4 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import 'babel-polyfill';
 import ordersRouter from './routes/orders';
 import adminRouter from './routes/admin';
@@ -9,7 +8,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use('/api/v1', ordersRouter);
+app.use('/api/v1/orders', ordersRouter);
 app.use('/api/v1/admin', adminRouter);
 // app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/auth', usersRouter);
