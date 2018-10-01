@@ -19,8 +19,8 @@ const User = {
     const values = [
       req.body.name,
       req.body.email,
-      req.body.address,
       encryptPassword,
+      req.body.address,
     ];
 
     try {
@@ -38,14 +38,14 @@ const User = {
   // login route
   async login(req, res) {
     if (!req.body.email || !req.body.password) {
-      return res.status(400).send([{ status: 'fail' }, { message: 'Some fiels are missing ' }]);
+      return res.status(400).send([{ status: 'fail' }, { message: 'Some fields are missing ' }]);
     }
     if (!Lib.isValidEmail(req.body.email)) {
       return res.status(400).send([{ status: 'fail' }, { message: 'Please enter a valid email address' }]);
     }
-    const text = 'SELECT * FROM users WHERE email = $1';
+    const loginQuery = 'SELECT * FROM users WHERE email = $1';
     try {
-      const { rows } = await db.query(text, [req.body.email]);
+      const { rows } = await db.query(loginQuery, [req.body.email]);
       if (!rows[0]) {
         return res.status(400).send([{ status: 'fail' }, { message: 'User not found' }]);
       }
@@ -53,7 +53,7 @@ const User = {
         return res.status(400).send([{ status: 'fail' }, { message: 'Invalid login details' }]);
       }
       const token = Lib.generateToken(rows[0].id);
-      return res.status(200).send([{ status: 'successful' }, { token }]);
+      return res.status(200).send([{ status: 'successful' }, { token }, { rows }]);
     } catch (error) {
       return res.status(400).send(error);
     }
