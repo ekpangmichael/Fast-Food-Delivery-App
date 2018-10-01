@@ -6,6 +6,7 @@ const router = express.Router();
 
 // orders route
 router.post('/', Orders.create);
+router.get('/', Orders.getAll);
 router.get('/users/:id', Orders.getHistory);
 router.get('/new', Orders.getNew);
 
