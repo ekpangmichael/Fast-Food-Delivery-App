@@ -49,8 +49,7 @@ const Orders = {
     }
   },
 
-// Get all orders
-
+  // Get all orders
   async getAll(req, res) {
     const findAll = 'SELECT * FROM orders';
     try {
@@ -72,6 +71,31 @@ const Orders = {
       return res.status(200).send(rows[0]);
     } catch (error) {
       return res.status(400).send(error);
+    }
+  },
+
+
+  // update order status
+  async update(req, res) {
+    if (!req.body.status) {
+      return res.status(400).send([{ status: 'fail' }, { message: 'status is empty' }]);
+    }
+    const queryOne = 'SELECT * FROM orders WHERE id=$1';
+    const updateQuery = `UPDATE orders
+      SET status=$1 WHERE id=$2 returning *`;
+    try {
+      const { rows } = await db.query(queryOne, [req.params.id]);
+      if (!rows[0]) {
+        return res.status(404).send({ message: 'orders not found' });
+      }
+      const values = [
+        req.body.status,
+        req.params.id,
+      ];
+      const response = await db.query(updateQuery, values);
+      return res.status(200).send(response.rows[0]);
+    } catch (err) {
+      return res.status(400).send(err);
     }
   },
 };
