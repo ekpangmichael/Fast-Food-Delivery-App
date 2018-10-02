@@ -7,7 +7,7 @@ const router = express.Router();
 // admin route
 router.post('/', Admin.create);
 router.get('/', Admin.getAll);
-// router.get('/:id', Admin.getOneItem);
+router.get('/:id', Admin.getOne);
 router.put('/:id', Admin.update);
 router.delete('/:id', Admin.delete);
 
