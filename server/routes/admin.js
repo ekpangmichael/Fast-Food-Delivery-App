@@ -9,6 +9,6 @@ router.post('/', Admin.create);
 router.get('/', Admin.getAll);
 // router.get('/:id', Admin.getOneItem);
 router.put('/:id', Admin.update);
-// router.delete('/:id', Admin.deleteItem);
+router.delete('/:id', Admin.delete);
 
 export default router;

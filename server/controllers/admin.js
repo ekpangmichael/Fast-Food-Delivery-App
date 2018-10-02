@@ -57,6 +57,20 @@ const foodMenu = {
       return res.status(400).send(err);
     }
   },
+
+  // delete a menu item
+  async delete(req, res) {
+    const deleteQuery = 'DELETE FROM menu WHERE id=$1 returning *';
+    try {
+      const { rows } = await db.query(deleteQuery, [req.params.id]);
+      if (!rows[0]) {
+        return res.status(404).send({ message: 'menu not found' });
+      }
+      return res.status(204).send({ message: 'deleted' });
+    } catch (error) {
+      return res.status(400).send(error);
+    }
+  },
 };
 
 export default foodMenu;
