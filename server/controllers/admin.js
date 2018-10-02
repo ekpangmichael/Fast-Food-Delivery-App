@@ -58,6 +58,20 @@ const foodMenu = {
     }
   },
 
+  // Get a specific order
+  async getOne(req, res) {
+    const queryOne = 'SELECT * FROM menu WHERE id = $1';
+    try {
+      const { rows } = await db.query(queryOne, [req.params.id]);
+      if (!rows[0]) {
+        return res.status(404).send({ message: 'menu not found' });
+      }
+      return res.status(200).send(rows[0]);
+    } catch (error) {
+      return res.status(400).send(error);
+    }   
+  },
+
   // delete a menu item
   async delete(req, res) {
     const deleteQuery = 'DELETE FROM menu WHERE id=$1 returning *';
