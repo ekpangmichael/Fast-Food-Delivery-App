@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 import configFile from '../config/config';
 
 dotenv.config();
-// code credit Idris
 const env = process.env.NODE_ENV || 'development';
 const config = configFile[env];
 
