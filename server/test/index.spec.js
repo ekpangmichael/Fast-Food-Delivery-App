@@ -23,7 +23,7 @@ describe('## API Test', () => {
           console.log(data);
           expect(err).to.be.a('null');
           //expect(name).to.equal(newOrders.orderName);
-          //expect(data[0].message).to.equal('Item added successfully');
+          //expect(data.message).to.equal('EMAIL already exist');
           done();
         });
     });
