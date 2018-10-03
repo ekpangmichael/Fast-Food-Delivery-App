@@ -14,9 +14,10 @@ const Lib = {
   isValidEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
   },
-  generateToken(id) {
+  generateToken(id, isAdmin) {
     const token = jwt.sign({
       userId: id,
+      admin: isAdmin,
     }, process.env.SECRET, { expiresIn: '10d' });
     return token;
   },

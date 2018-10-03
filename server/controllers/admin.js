@@ -3,6 +3,9 @@ import db from '../db/dbQuery';
 // create orders
 const foodMenu = {
   async create(req, res) {
+    if (req.user.isAdmin === false) {
+      return res.status(403).send({ message: 'Only admin can access this route' });
+    }
     const createQuery = `INSERT INTO menu(name, category, quantity, price, imageurl)
       VALUES($1, $2, $3, $4, $5)
       returning *`;
@@ -34,6 +37,9 @@ const foodMenu = {
 
   // Edit meal options
   async update(req, res) {
+    if (req.user.isAdmin === false) {
+      return res.status(403).send({ message: 'Only admin can access this route' });
+    }
     const findOne = 'SELECT * FROM menu WHERE id=$1';
     const updateQuery = `UPDATE menu
       SET name=$1,quantity=$2,price=$3,category=$4,imageurl=$5
@@ -60,6 +66,9 @@ const foodMenu = {
 
   // Get a specific order
   async getOne(req, res) {
+    if (req.user.isAdmin === false) {
+      return res.status(403).send({ message: 'Only admin can access this route' });
+    }
     const queryOne = 'SELECT * FROM menu WHERE id = $1';
     try {
       const { rows } = await db.query(queryOne, [req.params.id]);
@@ -69,11 +78,14 @@ const foodMenu = {
       return res.status(200).send(rows[0]);
     } catch (error) {
       return res.status(400).send(error);
-    }   
+    }
   },
 
   // delete a menu item
   async delete(req, res) {
+    if (req.user.isAdmin === false) {
+      return res.status(403).send({ message: 'Only admin can access this route' });
+    }
     const deleteQuery = 'DELETE FROM menu WHERE id=$1 returning *';
     try {
       const { rows } = await db.query(deleteQuery, [req.params.id]);

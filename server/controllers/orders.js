@@ -14,7 +14,7 @@ const Orders = {
       req.body.quantity,
       req.body.price,
       req.body.imgUrl,
-      processing,2
+      processing,
     ];
 
     try {
@@ -51,6 +51,10 @@ const Orders = {
 
   // Get all orders
   async getAll(req, res) {
+    if (req.user.isAdmin === false) {
+      return res.status(403).send({ message: 'Only admin can access this route' });
+    }
+
     const findAll = 'SELECT * FROM orders';
     try {
       const { rows, rowCount } = await db.query(findAll);
@@ -62,6 +66,9 @@ const Orders = {
 
   // Get a specific order
   async getOne(req, res) {
+    if (req.user.isAdmin === false) {
+      return res.status(403).send({ message: 'Only admin can access this route' });
+    }
     const queryOne = 'SELECT * FROM orders WHERE id = $1';
     try {
       const { rows } = await db.query(queryOne, [req.params.id]);
@@ -77,6 +84,9 @@ const Orders = {
 
   // update order status
   async update(req, res) {
+    if (req.user.isAdmin === false) {
+      return res.status(403).send({ message: 'Only admin can access this route' });
+    }
     if (!req.body.status) {
       return res.status(400).send([{ status: 'fail' }, { message: 'status is empty' }]);
     }
