@@ -45,11 +45,8 @@ const createOrders = () => {
     `CREATE TABLE IF NOT EXISTS
       orders(
         id SERIAL PRIMARY KEY,
-        name VARCHAR(128) NOT NULL,
-        quantity INT NOT NULL,
         userid INT NOT NULL,
-        price INT NOT NULL,
-        imageUrl VARCHAR(128) NOT NULL,
+        orders JSONB [],
         status VARCHAR(128) NOT NULL,
         FOREIGN KEY (userid) REFERENCES users (id) ON DELETE CASCADE,
         created_date TIMESTAMP DEFAULT NOW(),
