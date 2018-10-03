@@ -10,22 +10,31 @@ const User = {
     if (!Lib.isValidEmail(req.body.email)) {
       return res.status(400).send([{ status: 'fail' }, { message: 'Email is not valid' }]);
     }
+
+    let isAdmin = '';
+
+    if (req.body.email === 'mike@gmail.com') {
+      isAdmin = true;
+    } else {
+      isAdmin = false;
+    }
     const encryptPassword = Lib.encryptPassword(req.body.password);
 
     const createQuery = `INSERT INTO
-      users(name, email, password, address)
-      VALUES($1, $2, $3, $4)
+      users(name, email, password, address, is_admin)
+      VALUES($1, $2, $3, $4, $5)
       returning *`;
     const values = [
       req.body.name,
       req.body.email,
       encryptPassword,
       req.body.address,
+      isAdmin,
     ];
 
     try {
       const { rows } = await db.query(createQuery, values);
-      const token = Lib.generateToken(rows[0].id);
+      const token = Lib.generateToken(rows[0].id, rows[0].is_admin);
       return res.status(201).send({ token });
     } catch (error) {
       if (error.routine === '_bt_check_unique') {
@@ -52,7 +61,7 @@ const User = {
       if (!Lib.comparePassword(rows[0].password, req.body.password)) {
         return res.status(400).send([{ status: 'fail' }, { message: 'Invalid login details' }]);
       }
-      const token = Lib.generateToken(rows[0].id);
+      const token = Lib.generateToken(rows[0].id, rows[0].is_admin);
       return res.status(200).send([{ status: 'successful' }, { token }, { rows }]);
     } catch (error) {
       return res.status(400).send(error);

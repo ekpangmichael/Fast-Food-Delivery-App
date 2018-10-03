@@ -1,10 +1,13 @@
 import { Pool } from 'pg';
 import dotenv from 'dotenv';
+import configFile from '../config/config';
 
 dotenv.config();
+const env = process.env.NODE_ENV || 'development';
+const config = configFile[env];
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env[config.use_env_variable],
 });
 
 pool.on('connect', () => {
@@ -44,10 +47,11 @@ const createOrders = () => {
         id SERIAL PRIMARY KEY,
         name VARCHAR(128) NOT NULL,
         quantity INT NOT NULL,
-        userID INT NOT NULL,
+        userid INT NOT NULL,
         price INT NOT NULL,
         imageUrl VARCHAR(128) NOT NULL,
         status VARCHAR(128) NOT NULL,
+        FOREIGN KEY (userid) REFERENCES users (id) ON DELETE CASCADE,
         created_date TIMESTAMP DEFAULT NOW(),
         modified_date TIMESTAMP DEFAULT NOW()
       )`;
