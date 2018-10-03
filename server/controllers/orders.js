@@ -5,15 +5,13 @@ const processing = 'New';
 // create orders
 const Orders = {
   async create(req, res) {
-    const createQuery = `INSERT INTO orders(name, userid, quantity, price, imageurl, status)
-      VALUES($1, $2, $3, $4, $5, $6)
+  
+    const createQuery = `INSERT INTO orders(userid, orders, status)
+      VALUES($1, $2, $3)
       returning *`;
     const values = [
-      req.body.name,
       req.body.userId,
-      req.body.quantity,
-      req.body.price,
-      req.body.imgUrl,
+      req.body.orders,
       processing,
     ];
 
