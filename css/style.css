@@ -134,7 +134,7 @@ header a:hover{
 /*banner*/
 #banner{
 	min-height: 400px;
-	background:url('https://res.cloudinary.com/weezyval/image/upload/v1535674062/fastfood/banner.jpg') no-repeat;
+	background:url('https://res.cloudinary.com/weezyval/image/upload/c_scale,w_2000/v1535674062/fastfood/banner.jpg') no-repeat;
 	text-align: center;
 	color: #ffffff;
 }
