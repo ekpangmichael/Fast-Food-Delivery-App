@@ -5,7 +5,6 @@ const processing = 'New';
 // create orders
 const Orders = {
   async create(req, res) {
-  
     const createQuery = `INSERT INTO orders(userid, orders, status)
       VALUES($1, $2, $3)
       returning *`;

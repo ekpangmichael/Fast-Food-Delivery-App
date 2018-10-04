@@ -10,6 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use('/api/v1/orders', ordersRouter);
+app.use('/api/v1/orders/new', ordersRouter);
 app.use('/api/v1/menu', adminRouter);
 // app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/auth', usersRouter);
