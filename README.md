@@ -1,5 +1,5 @@
 # Fast Food Delivery App
-> Fast-Food delivery app for a restaurant.
+> Fast-Food delivery app for a restaurant - Api Endpoints.
 
 [![Build Status](https://travis-ci.org/ekpangmichael/Fast-Food-Delivery-App.svg?branch=develop)](https://travis-ci.org/ekpangmichael/Fast-Food-Delivery-App)
 [![Coverage Status](https://coveralls.io/repos/github/ekpangmichael/Fast-Food-Delivery-App/badge.png?branch=develop)](https://coveralls.io/github/ekpangmichael/Fast-Food-Delivery-App?branch=develop) [![Test Coverage](https://api.codeclimate.com/v1/badges/f146d9a754eb2083cabc/test_coverage)](https://codeclimate.com/github/ekpangmichael/Fast-Food-Delivery-App/test_coverage)
@@ -39,35 +39,29 @@ $ npm run build
 ## API Documentation
 > The Api is hosted on heroku URL https://fast-food-api.herokuapp.com/
 
-### Order endpoints `/api/v1/orders`
+### Order endpoints `/api/v1/auth/`
 
 | method | route            | description          | data                                                    |
 | ------ | ---------------- | -------------------- | --------------------------------------------------------|
-| GET    | /orders          | Get all users orders |                                                         |
-| POST   | /orders/         | Place an order       | `{userId, orderId, orderName, imgUrl, quantity, price}` |
-| GET    | /orders/:id      | Get an order         | `{id}`                                                  |
-| PUT    | /orders/:id      | Update order status  | `{id, body}`                                            |
-| DELETE | /orders/:id      | Delete an order      | `{id}`                                                  |
+| POST   | /signup          | Register a user      |  `{email, password, address, name}                      |
+| POST   | /login           | Login a user         | `{email, password}`                                     |
+
  
 
-### Admin endpoints `/api/v1/admin`
+### Admin endpoints `/api/v1/orders`
 
-| method | route           | description            | data                                                    |
-| ------ | ----------------|------------------------| --------------------------------------------------------|
-| GET    | /admin          | Get all fast food items|                                                         |
-| POST   | /admin/         | Add fast food items    | `{foodName, imgUrl, category, quantity, price}`         |
-| GET    | /admin/:id      | Get one fast food item | `{id}`                                                  |
-| PUT    | /admin/:id      | Update a fast food item| `{id, body}`                                            |
-| DELETE | /admin/:id      | Delete a fast food item| `{id}`                                                  |
+| method | route             | description                  | data                                                    |
+| ------ | ------------------|------------------------------|---------------------------------------------------------|
+| GET    | /orders           | Get all orders               |                                                         |
+| POST   | /orders           | Place an order for food      | `{userid, orders[]                                      |
+| GET    | /orders/users/:id | Get the order history(user)  | `{id}`                                                  |
+| GET    | /orders/:id       | Get a specific order         | `{id}`                                                  |
+| PUT    | /orders/:id       | Update the status of an order| `{id}`                                                  |
 
     
-### Users endpoints `/api/v1/users`
+### Users endpoints `/api/v1/menu`
 
-| method | route           | description               | data                                                  |
-| ------ | ----------------|-------------------------- | ------------------------------------------------------|
-| GET    | /users          | Get all registered users  |                                                       |
-| POST   | /users/         | User registration         | `{name, email, address, password}`    |
-| POST   | /users/signin   | User login                | `{email, password}`                           |
-| GET    | /users/:id      | Get one user              | `{id}`                                                |
-| PUT    | /users/:id      | Update a user             | `{id, body}`                                          |
-| DELETE | /users/:id      | Delete a users            | `{id}`                                                |
+| method | route           | description                   | data                                                   |
+| ------ | ----------------|-------------------------------| -------------------------------------------------------|
+| GET    | /menu           | Get available menu            |                                                        |
+| POST   | /menu           | Add a meal option to the menu | `{name, category, price, quantity, price}`             |
