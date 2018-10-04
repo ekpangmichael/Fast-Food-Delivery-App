@@ -17,26 +17,16 @@ const seedUsers = () => {
     name,
     email,
     password,
-    address
+    address,
+    is_admin 
 )
 VALUES
     (
         'Ekpang Michael',
-        'weezyval93@gmail.com',
+        'mike@gmail.com',
         'bisongetta',
-        'mushin lagos'
-    ),
-    (
-        'Will smith',
-        'will@gmail.com',
-        'bisongetta',
-        'mushin lagos'
-    ),
-    (
-        'john Doe',
-        'john@gmail.com',
-        'bisongetta',
-        'mushin lagos'
+        'mushin lagos',
+        'true'
     )`;
 
   pool.query(queryText)

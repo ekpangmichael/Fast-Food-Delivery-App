@@ -123,11 +123,25 @@ const dropOrdersTable = () => {
     });
 };
 
+const dropMenuTable = () => {
+  const queryText = 'DROP TABLE IF EXISTS menu';
+  pool.query(queryText)
+    .then((res) => {
+      console.log(res);
+      pool.end();
+    })
+    .catch((err) => {
+      console.log(err);
+      pool.end();
+    });
+};
+
 
 // drop all tables
 const dropAll = () => {
   dropOrdersTable();
   dropUsersTable();
+  dropMenuTable();
 };
 pool.on('remove', () => {
   console.log('client removed');

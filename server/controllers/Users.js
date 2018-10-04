@@ -2,10 +2,9 @@ import db from '../db/dbQuery';
 import Lib from './Lib';
 
 const User = {
-
   async create(req, res) {
     if (!req.body.email || !req.body.password || !req.body.name || !req.body.address) {
-      return res.status(400).send([{ status: 'fail' }, { message: 'All fiels are required' }]);
+      return res.status(400).send([{ status: 'fail' }, { message: 'All fields are required' }]);
     }
     if (!Lib.isValidEmail(req.body.email)) {
       return res.status(400).send([{ status: 'fail' }, { message: 'Email is not valid' }]);
@@ -68,18 +67,18 @@ const User = {
     }
   },
 
-  async delete(req, res) {
-    const deleteQuery = 'DELETE FROM users WHERE id=$1 returning *';
-    try {
-      const { rows } = await db.query(deleteQuery, [req.user.id]);
-      if (!rows[0]) {
-        return res.status(404).send([{ status: 'fail' }, { message: 'user not found' }]);
-      }
-      return res.status(204).send([{ status: 'successful' }, { message: 'deleted' }]);
-    } catch (error) {
-      return res.status(400).send(error);
-    }
-  },
+  // async delete(req, res) {
+  //   const deleteQuery = 'DELETE FROM users WHERE id=$1 returning *';
+  //   try {
+  //     const { rows } = await db.query(deleteQuery, [req.user.id]);
+  //     if (!rows[0]) {
+  //       return res.status(404).send([{ status: 'fail' }, { message: 'user not found' }]);
+  //     }
+  //     return res.status(204).send([{ status: 'successful' }, { message: 'deleted' }]);
+  //   } catch (error) {
+  //     return res.status(400).send(error);
+  //   }
+  // },
 };
 
 export default User;
