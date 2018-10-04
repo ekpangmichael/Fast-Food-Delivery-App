@@ -2,7 +2,6 @@ import db from '../db/dbQuery';
 import Lib from './Lib';
 
 const User = {
-
   async create(req, res) {
     if (!req.body.email || !req.body.password || !req.body.name || !req.body.address) {
       return res.status(400).send([{ status: 'fail' }, { message: 'All fields are required' }]);

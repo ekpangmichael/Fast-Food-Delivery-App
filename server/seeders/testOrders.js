@@ -13,7 +13,7 @@ export default {
     },
 
     orderStatus: {
-      status: 'processing',
+      status: 'completed',
     },
   },
 };

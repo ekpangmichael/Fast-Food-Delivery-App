@@ -21,5 +21,9 @@ const Lib = {
     }, process.env.SECRET, { expiresIn: '10d' });
     return token;
   },
+  isNumber(id) {
+    const parseID = parseInt(id);
+    return Number.isInteger(parseID);
+  },
 };
 export default Lib;
