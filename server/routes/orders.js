@@ -6,12 +6,13 @@ import Auth from '../middleware/Auth';
 const router = express.Router();
 
 // orders route
+router.get('/new', Auth.verifyToken, Orders.getNew);
 router.post('/', Auth.verifyToken, Orders.create);
 router.get('/', Auth.verifyToken, Orders.getAll);
 router.put('/:id', Auth.verifyToken, Orders.update);
 router.get('/:id', Auth.verifyToken, Orders.getOne);
 router.get('/users/:id', Auth.verifyToken, Orders.getHistory);
-router.get('/new', Auth.verifyToken, Orders.getNew);
+
 
 // router.get('/orders', Orders.getAll);
 
