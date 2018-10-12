@@ -5,9 +5,23 @@ import adminRouter from './routes/admin';
 import usersRouter from './routes/users';
 
 const app = express();
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Handling CORS
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+  );
+  if (req.method === 'OPTIONS') {
+    res.header('Access-Control-Allow-Method', 'PUT', 'POST', 'PATCH', 'DELETE', 'GET');
+    return res.status(200).json({});
+  }
+  next();
+});
+
 app.use('/api/v1/orders', ordersRouter);
 app.use('/api/v1/orders/new', ordersRouter);
 app.use('/api/v1/menu', adminRouter);
