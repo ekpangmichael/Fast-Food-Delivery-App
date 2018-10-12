@@ -1,5 +1,4 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import 'babel-polyfill';
 import ordersRouter from './routes/orders';
 import adminRouter from './routes/admin';
@@ -16,7 +15,7 @@ app.use('/api/v1/menu', adminRouter);
 app.use('/api/v1/auth', usersRouter);
 
 const apiDocs = {
-  message: 'Welcome to fast food delivery app (api version 1) <a href="https://github.com/ekpangmichael/Fast-Food-Delivery-App">Read docs</a>',
+  message: 'Welcome to fast food delivery app (api version 1)',
 };
 
 app.get('/', (req, res) => res.status(200).send([{ message: apiDocs }]));
