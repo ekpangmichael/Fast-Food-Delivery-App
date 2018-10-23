@@ -34,7 +34,7 @@ const User = {
     try {
       const { rows } = await db.query(createQuery, values);
       const token = Lib.generateToken(rows[0].id, rows[0].is_admin);
-      return res.status(201).send({ token });
+      return res.status(201).send([{ status: 'successful' }, { message: 'Registration successful' }, { token }]);
     } catch (error) {
       if (error.routine === '_bt_check_unique') {
         return res.status(400).send([{ status: 'fail' }, { message: 'EMAIL already exist' }]);
