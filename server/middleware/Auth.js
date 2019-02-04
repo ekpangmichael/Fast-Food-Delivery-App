@@ -4,7 +4,7 @@ import db from '../db/dbQuery';
 const Auth = {
 
   async verifyToken(req, res, next) {
-    const token = req.headers['x-access-token'];
+    const token = req.headers['authorization'];
     if (!token) {
       return res.status(403).send({ message: 'Please provide your Token' });
     }
